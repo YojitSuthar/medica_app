@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:medica/resources/assets_manager.dart';
 import 'package:medica/resources/import_resources.dart';
 import 'package:medica/resources/resources.dart';
-
+import '../../../provider/provider.dart';
 import '../reuse_widget/reuse_widget.dart';
 
 class OnBoardingScreen extends StatelessWidget {
@@ -11,35 +10,58 @@ class OnBoardingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final button = Provider.of<ButtonProvider>(context, listen: false);
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.all(15).w,
+          padding: const EdgeInsets.all(15).w,
           child: Column(
             children: [
               Expanded(
                 child: PageView(
-                  onPageChanged: (index) {},
+                  onPageChanged: (index) {
+                      button.onChange(index);
+                  },
                   controller: controller,
                   children: <Widget>[
                     Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Image.asset(ImageAssets.boarding_1Image),
+                        Image.asset(ImageAssets.boarding_1Image,height: 250.h,),
                         Text(
                           "Thousands of doctors & experts to help your health! ",
                           style: TextStyle(
-                              fontSize: 30,
+                              fontSize: 30.sp,
                               color: RGBColorManager.rgbBlueColor),
                           textAlign: TextAlign.center,
                         )
                       ],
                     ),
-                    Center(
-                      child: Text('Second Page'),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Image.asset(ImageAssets.boarding_2Image,height: 250.h),
+                        Text(
+                          "Health checks & consultations easily anywhere anytime",
+                          style: TextStyle(
+                              fontSize: 30.sp,
+                              color: RGBColorManager.rgbBlueColor),
+                          textAlign: TextAlign.center,
+                        )
+                      ],
                     ),
-                    Center(
-                      child: Text('Third Page'),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Image.asset(ImageAssets.boarding_3Image,height: 250.h),
+                        Text(
+                          "Let's start living healthy and well with us right now !",
+                          style: TextStyle(
+                              fontSize: 30.sp,
+                              color: RGBColorManager.rgbBlueColor),
+                          textAlign: TextAlign.center,
+                        )
+                      ],
                     ),
                   ],
                 ),
@@ -48,23 +70,30 @@ class OnBoardingScreen extends StatelessWidget {
                 controller: controller,
                 count: 3,
                 effect: ExpandingDotsEffect(
-                    dotHeight: 10,
-                    dotWidth: 10,
+                    dotHeight: 10.h,
+                    dotWidth: 10.w,
                     activeDotColor: RGBColorManager.rgbBlueColor,
                     dotColor: ColorManager.grey400Color),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 40),
-                child: Button(
-                  height: 45,
-                  width: 400,
-                  buttonName: "Next",
-                  color: RGBColorManager.rgbBlueColor,
-                  onPressed: () {
-                  },
-                  borderRadius: 20,
-                ),
-              ),
+              Consumer<ButtonProvider>(builder: (context, value, child) {
+                return Padding(
+                  padding: const EdgeInsets.only(top: 40),
+                  child: BlueButton(
+                    height: 45,
+                    width: 400,
+                    buttonName: value.change?"Get started":"Next",
+                    color: RGBColorManager.rgbBlueColor,
+                    onPressed:value.change? () {
+                      Get.offAllNamed("/SocialScreen");
+                    }:(){
+                      controller.nextPage(
+                          duration: const Duration(milliseconds: 250),
+                          curve: Curves.easeIn);
+                    },
+                    borderRadius: 20,
+                  ),
+                );
+              })
             ],
           ),
         ),

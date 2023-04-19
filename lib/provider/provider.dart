@@ -1,0 +1,1 @@
+export 'bording_scrn_provider.dart';

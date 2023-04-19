@@ -33,7 +33,7 @@ flutter:
   fonts:
     - family: SansJP
       fonts:
-        - asset: assets/fonts/NotoSansJP-SemiBold.ttf
+        - asset: assets/fonts/NotoSansJP-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
