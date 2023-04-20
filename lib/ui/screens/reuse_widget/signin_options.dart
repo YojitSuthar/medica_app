@@ -14,16 +14,17 @@ class SignInOption extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 45.h,
+      padding: EdgeInsets.only(left: 75.r),
       margin: const EdgeInsets.only(top: 15).r,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15.w),
           border: Border.all(color: ColorManager.grey400Color)),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Image.asset(
             iconAsset,
-            height: 25,
+            height: 25.h,
           ),
           Container(
               margin: const EdgeInsets.only(left: 10).r,

@@ -2,47 +2,51 @@ import 'package:flutter/material.dart';
 import 'package:medica/resources/import_resources.dart';
 import 'package:medica/resources/resources.dart';
 
-
 class NormalTextFiled extends StatelessWidget {
   const NormalTextFiled({
     super.key,
     required this.hintText,
-    required this.iconAsset,
-    required this.controller,
+     this.controller,
+    required this.topPadding,
+    required this.leftPadding,
+    required this.readOnly,
+    this.prefixIcon,
+    this.child,
   });
 
   final String hintText;
-  final String iconAsset;
-  final TextEditingController controller;
-
+  final TextEditingController? controller;
+  final Widget? prefixIcon;
+  final Widget? child;
+  final double topPadding;
+  final double leftPadding;
+  final bool readOnly;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(top: 10).r,
-      padding: const EdgeInsets.only(left: 15, right: 20).r,
-      height: 50.h,
+      padding: const EdgeInsets.only(left: 15, right: 15).r,
+      height: 45.h,
       decoration: BoxDecoration(
-          border:
-          Border.all(color: ColorManager.greyColor, width: 1),
-          borderRadius: BorderRadius
-              .circular(20)
-              .w),
+          border: Border.all(color: ColorManager.greyColor, width: 1),
+          borderRadius: BorderRadius.circular(20).w),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Image.asset(
-            iconAsset,
-            height: 25.h,
-          ),
           Expanded(
               child: TextFormField(
-                textInputAction: TextInputAction.next,
-                controller: controller,
-                decoration: InputDecoration(
-                    hintText: hintText,
-                    contentPadding: EdgeInsets.only(left: 15.r),
-                    border: InputBorder.none),
-              ))
+            textInputAction: TextInputAction.next,
+            controller: controller,
+            readOnly: readOnly,
+            decoration: InputDecoration(
+                icon: prefixIcon,
+                hintText: hintText,
+                contentPadding:
+                    EdgeInsets.only(left: leftPadding, top: topPadding),
+                border: InputBorder.none),
+          )),
+          child==null?Container():Container(child: child,)
         ],
       ),
     );

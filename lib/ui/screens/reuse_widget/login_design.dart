@@ -15,16 +15,16 @@ class CompanyLoginDesign extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: SizedBox(
-        height: 200.h,
+        height: 180.h,
         child: Column(
           children: [
             SizedBox(
-                height: 140.h,
+                height: 130.h,
                 child: Image.asset(ImageAssets.companyLogoImage,)),
 
             Padding(
               padding: const EdgeInsets.only(top: 10),
-              child: Text(label,style: TextStyle(fontSize: 25.sp),),
+              child: Text(label,style: TextStyle(fontSize: 22.sp),),
             )
 
           ],

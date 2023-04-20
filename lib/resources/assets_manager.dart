@@ -30,4 +30,7 @@ class IconsAssets {
   static const String hiddenIcon = "$ICONS_PATH/hidden.png";
   static const String visibleIcon = "$ICONS_PATH/visibility.png";
   static const String passwordIcon = "$ICONS_PATH/locked-padlock.png";
+  static const String editIcon = "$ICONS_PATH/edit.png";
+  static const String userIcon = "$ICONS_PATH/user (1).png";
+  static const String calenderIcon = "$ICONS_PATH/calendar.png";
 }

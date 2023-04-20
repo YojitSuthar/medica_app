@@ -31,7 +31,10 @@ class LoginScreen extends StatelessWidget {
                     label: "Login to your account",
                   ),
                   NormalTextFiled(
-                    iconAsset: IconsAssets.mailIcon,
+                    readOnly: false,
+                    prefixIcon: Image.asset(IconsAssets.mailIcon,height:35,),
+                    topPadding: 0,
+                    leftPadding: 0,
                     hintText: "Email",
                     controller: emailCtrl,
                   ),
@@ -47,31 +50,34 @@ class LoginScreen extends StatelessWidget {
                       const CheckBoxWidget(),
                       Text(
                         "Remember me",
-                        style: TextStyle(fontSize: 15.sp),
+                        style: TextStyle(fontSize: 13.sp),
                       )
                     ],
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 20).r,
+                    padding: const EdgeInsets.only(top: 10).r,
                     child: BlueButton(
                       height: 45,
                       width: 400,
                       buttonName: "Sign in",
                       color: RGBColorManager.rgbDarkBlueColor,
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.toNamed("/UserFillProfile");
+                      },
                       borderRadius: 30,
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 10),
+                    padding: const EdgeInsets.only(top: 10).r,
                     child: GestureDetector(
-                      onTap: (){
+                      onTap: () {
                         Get.toNamed('/ForgetPassword');
                       },
                       child: Center(
                           child: Text(
                         "Forget the Password?",
-                        style: TextStyle(color: RGBColorManager.rgbDarkBlueColor),
+                        style:
+                            TextStyle(color: RGBColorManager.rgbDarkBlueColor),
                       )),
                     ),
                   ),
@@ -85,7 +91,7 @@ class LoginScreen extends StatelessWidget {
                                     .r,
                             child: Divider(
                               color: ColorManager.blackColor,
-                              height: 20.h,
+                              thickness: 1,
                             )),
                       ),
                       const Text("Or continue with"),
@@ -95,8 +101,8 @@ class LoginScreen extends StatelessWidget {
                                 const EdgeInsets.only(left: 20.0, right: 10.0)
                                     .r,
                             child: Divider(
-                              height: 20.h,
                               color: ColorManager.blackColor,
+                              thickness: 1,
                             )),
                       ),
                     ]),
@@ -116,12 +122,12 @@ class LoginScreen extends StatelessWidget {
                     ],
                   ),
                   Container(
-                    margin: const EdgeInsets.only(top: 10,bottom: 10).r,
+                    margin: const EdgeInsets.only(top: 10, bottom: 10).r,
                     child: Center(
                       child: RichTxt(
                         text_1: 'Don\'t have any account? ',
                         text_2: ' Sign up',
-                        onTap: () {},
+                        onTap: () {Get.toNamed("/SignupScreen");},
                       ),
                     ),
                   )

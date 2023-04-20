@@ -22,7 +22,10 @@ class ForgetPassword extends StatelessWidget {
                 label: "Forget Password",
               ),
               NormalTextFiled(
-                iconAsset: IconsAssets.mailIcon,
+                readOnly: false,
+                prefixIcon: Image.asset(IconsAssets.mailIcon),
+                topPadding: 0,
+                leftPadding: 10,
                 hintText: "Email",
                 controller: emailCtrl,
               ),

@@ -28,7 +28,7 @@ class _PassFieldState extends State<PassField> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 50.h,
+      height: 45.h,
       margin: const EdgeInsets.only(top: 20).r,
       padding: const EdgeInsets.only(left: 20, right: 20).r,
       decoration: BoxDecoration(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:medica/provider/provider.dart';
 import 'package:medica/resources/import_resources.dart';
 import 'package:medica/resources/resources.dart';
-import 'provider/bording_scrn_provider.dart';
 import 'ui/screens/screens.dart';
 
 void main() {
@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => ButtonProvider()),
+        ChangeNotifierProvider(create: (context) => DropDown()),
       ],
       child: ScreenUtilInit(
         designSize: const Size(360, 690),

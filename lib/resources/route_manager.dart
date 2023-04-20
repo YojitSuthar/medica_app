@@ -29,5 +29,9 @@ final List<GetPage<dynamic>> routes = [
       page: () =>  SocialScreen(),
       transition: Transition.fade,
       transitionDuration: const Duration(milliseconds: 250)),
+  GetPage(name: "/UserFillProfile", page: () =>  UserFillProfile()),
+  GetPage(name: "/CreatePinScreen", page: () =>  CreatePinScreen()),
+
+
 
 ];

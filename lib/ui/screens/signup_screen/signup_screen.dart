@@ -30,9 +30,12 @@ class SignupScreen extends StatelessWidget {
                     label: "Create new account",
                   ),
                   NormalTextFiled(
-                    iconAsset: IconsAssets.mailIcon,
+                    prefixIcon: Image.asset(IconsAssets.mailIcon,height: 35,),
+                    topPadding: 0,
+                    leftPadding: 10,
                     hintText: "Email",
                     controller: emailCtrl,
+                    readOnly: false,
                   ),
                   PassField(
                     height: 20,
@@ -46,7 +49,7 @@ class SignupScreen extends StatelessWidget {
                       const CheckBoxWidget(),
                       Text(
                         "Remember me",
-                        style: TextStyle(fontSize: 15.sp),
+                        style: TextStyle(fontSize: 13.sp),
                       )
                     ],
                   ),
@@ -71,7 +74,8 @@ class SignupScreen extends StatelessWidget {
                                 .r,
                             child: Divider(
                               color: ColorManager.blackColor,
-                              height: 20.h,
+                              thickness: 1,
+
                             )),
                       ),
                       const Text("Or continue with"),
@@ -81,7 +85,7 @@ class SignupScreen extends StatelessWidget {
                             const EdgeInsets.only(left: 20.0, right: 10.0)
                                 .r,
                             child: Divider(
-                              height: 20.h,
+                              thickness: 1,
                               color: ColorManager.blackColor,
                             )),
                       ),
@@ -98,9 +102,11 @@ class SignupScreen extends StatelessWidget {
                   Container(
                     margin: const EdgeInsets.only(top: 20).r,
                     child: Center(
-                      child: RichTxt(text_1: 'Already have an account',
+                      child: RichTxt(text_1: 'Already have an account?',
                         text_2: ' Sign in',
-                        onTap: () {},),
+                        onTap: () {
+                        Get.toNamed("/LoginScreen");
+                        },),
                     ),
                   )
 

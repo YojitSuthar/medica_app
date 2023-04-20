@@ -38,7 +38,8 @@ class SocialScreen extends StatelessWidget {
                       ],
                     ),
                   )),
-              Expanded(
+              SizedBox(
+                height: 200.h,
                   child: ListView.builder(
                       physics: const NeverScrollableScrollPhysics(),
                       itemCount: signinOption.length,
@@ -53,18 +54,16 @@ class SocialScreen extends StatelessWidget {
                 Expanded(
                   child: Container(
                       margin: const EdgeInsets.only(left: 10.0, right: 20.0).r,
-                      child: Divider(
-                        color: ColorManager.blackColor,
-                        height: 55.h,
+                      child: const Divider(
+                       thickness: 1,
                       )),
                 ),
                 const Text("Or"),
                 Expanded(
                   child: Container(
                       margin: const EdgeInsets.only(left: 20.0, right: 10.0).r,
-                      child: Divider(
-                        color: ColorManager.blackColor,
-                        height: 55.h,
+                      child: const Divider(
+                       thickness: 1,
                       )),
                 ),
               ]),

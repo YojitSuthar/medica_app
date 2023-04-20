@@ -16,7 +16,7 @@ class IntroScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image.asset(ImageAssets.doctorImage),
+                Image.asset(ImageAssets.doctorImage,fit:BoxFit.fill,),
                 Text(
                   "Welcome to\n Medica! 👋",
                   style: TextStyle(
