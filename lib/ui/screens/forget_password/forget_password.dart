@@ -22,6 +22,7 @@ class ForgetPassword extends StatelessWidget {
                 label: "Forget Password",
               ),
               NormalTextFiled(
+                color: ColorManager.whiteColor,
                 readOnly: false,
                 prefixIcon: Image.asset(IconsAssets.mailIcon),
                 topPadding: 0,
@@ -34,10 +35,10 @@ class ForgetPassword extends StatelessWidget {
                 child: BlueButton(
                   height: 45,
                   width: 400,
-                  buttonName: "Sent",
                   color: RGBColorManager.rgbDarkBlueColor,
                   onPressed: () {},
                   borderRadius: 30,
+                  child: const Text("Sent"),
                 ),
               ),
             ],

@@ -7,3 +7,4 @@ export 'login_screen/login_screen.dart';
 export 'forget_password/forget_password.dart';
 export 'user_fill_profile/user_fill_profile.dart';
 export 'user_fill_profile/create_pin_screen.dart';
+export 'home_screen/home_screen.dart';

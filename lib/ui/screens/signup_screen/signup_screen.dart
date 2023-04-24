@@ -30,7 +30,11 @@ class SignupScreen extends StatelessWidget {
                     label: "Create new account",
                   ),
                   NormalTextFiled(
-                    prefixIcon: Image.asset(IconsAssets.mailIcon,height: 35,),
+                    color: ColorManager.whiteColor,
+                    prefixIcon: Image.asset(
+                      IconsAssets.mailIcon,
+                      height: 35,
+                    ),
                     topPadding: 0,
                     leftPadding: 10,
                     hintText: "Email",
@@ -49,7 +53,7 @@ class SignupScreen extends StatelessWidget {
                       const CheckBoxWidget(),
                       Text(
                         "Remember me",
-                        style: TextStyle(fontSize: 13.sp),
+                        style: fontSizeTextStyle(13),
                       )
                     ],
                   ),
@@ -58,10 +62,10 @@ class SignupScreen extends StatelessWidget {
                     child: BlueButton(
                       height: 45,
                       width: 400,
-                      buttonName: "Sign up",
                       color: RGBColorManager.rgbDarkBlueColor,
                       onPressed: () {},
                       borderRadius: 30,
+                      child: const Text("Sign up"),
                     ),
                   ),
                   Padding(
@@ -70,20 +74,19 @@ class SignupScreen extends StatelessWidget {
                       Expanded(
                         child: Container(
                             margin:
-                            const EdgeInsets.only(left: 10.0, right: 20.0)
-                                .r,
+                                const EdgeInsets.only(left: 10.0, right: 20.0)
+                                    .r,
                             child: Divider(
                               color: ColorManager.blackColor,
                               thickness: 1,
-
                             )),
                       ),
                       const Text("Or continue with"),
                       Expanded(
                         child: Container(
                             margin:
-                            const EdgeInsets.only(left: 20.0, right: 10.0)
-                                .r,
+                                const EdgeInsets.only(left: 20.0, right: 10.0)
+                                    .r,
                             child: Divider(
                               thickness: 1,
                               color: ColorManager.blackColor,
@@ -93,23 +96,30 @@ class SignupScreen extends StatelessWidget {
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children:const [
-                      BoxSigninOption(iconAsset: IconsAssets.facebookIcon,),
-                      BoxSigninOption(iconAsset: IconsAssets.googleIcon,),
-                      BoxSigninOption(iconAsset: IconsAssets.appleIcon,)
+                    children: const [
+                      BoxSigninOption(
+                        iconAsset: IconsAssets.facebookIcon,
+                      ),
+                      BoxSigninOption(
+                        iconAsset: IconsAssets.googleIcon,
+                      ),
+                      BoxSigninOption(
+                        iconAsset: IconsAssets.appleIcon,
+                      )
                     ],
                   ),
                   Container(
                     margin: const EdgeInsets.only(top: 20).r,
                     child: Center(
-                      child: RichTxt(text_1: 'Already have an account?',
+                      child: RichTxt(
+                        text_1: 'Already have an account?',
                         text_2: ' Sign in',
                         onTap: () {
-                        Get.toNamed("/LoginScreen");
-                        },),
+                          Get.toNamed("/LoginScreen");
+                        },
+                      ),
                     ),
                   )
-
                 ],
               ),
             ),
@@ -119,5 +129,3 @@ class SignupScreen extends StatelessWidget {
     );
   }
 }
-
-

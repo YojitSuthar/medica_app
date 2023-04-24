@@ -9,7 +9,8 @@ class BlueButton extends StatelessWidget {
     required this.color,
     required this.borderRadius,
     required this.onPressed,
-    required this.buttonName,
+    required this.child,
+
   });
 
   final double height;
@@ -17,7 +18,7 @@ class BlueButton extends StatelessWidget {
   final Color color;
   final double borderRadius;
   final VoidCallback onPressed;
-  final String buttonName;
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +31,6 @@ class BlueButton extends StatelessWidget {
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(borderRadius).w)),
         onPressed: onPressed,
-        child: Text(buttonName));
+        child: child);
   }
 }

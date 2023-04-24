@@ -17,6 +17,8 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (context) => ButtonProvider()),
         ChangeNotifierProvider(create: (context) => DropDown()),
+        ChangeNotifierProvider(create: (context) => ChangeColor()),
+        ChangeNotifierProvider(create: (context) => BottumNavigation()),
       ],
       child: ScreenUtilInit(
         designSize: const Size(360, 690),

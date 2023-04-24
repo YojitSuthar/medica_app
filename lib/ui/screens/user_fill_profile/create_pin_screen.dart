@@ -1,13 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:medica/resources/import_resources.dart';
-import 'package:otp_text_field/otp_text_field.dart';
-import 'package:otp_text_field/style.dart';
 import '../../../resources/resources.dart';
 import '../reuse_widget/reuse_widget.dart';
 
 class CreatePinScreen extends StatelessWidget {
   CreatePinScreen({Key? key}) : super(key: key);
   OtpFieldController otpController = OtpFieldController();
+  ValueNotifier<bool> buttonClickedTimes = ValueNotifier(false);
+
+  void navigation() async {
+    Duration time = const Duration(seconds: 2);
+    await Future.delayed(
+      time,
+      () {
+        Get.offAllNamed("/HomePage");
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,15 +31,15 @@ class CreatePinScreen extends StatelessWidget {
                   const BackIconButton(),
                   Text(
                     "Create new pin",
-                    style: TextStyle(fontSize: 16.sp),
+                    style: fontSizeTextStyle(16),
                   ),
                 ],
               ),
-              const Padding(
-                  padding: EdgeInsets.all(40),
+              Padding(
+                  padding: const EdgeInsets.all(40),
                   child: Text(
                     "Add a Pin number to make your account more secure",
-                    style: TextStyle(fontSize: 20),
+                    style: fontSizeTextStyle( 20),
                     textAlign: TextAlign.center,
                   )),
               OTPTextField(
@@ -43,20 +52,74 @@ class CreatePinScreen extends StatelessWidget {
                   outlineBorderRadius: 15,
                   style: const TextStyle(fontSize: 17),
                   onChanged: (pin) {
-                    print("Changed: " + pin);
+                    debugPrint("Changed: $pin");
                   },
                   onCompleted: (pin) {
-                    print("Completed: " + pin);
+                    debugPrint("Completed: $pin");
+                    buttonClickedTimes.value = true;
                   }),
               Padding(
                 padding: const EdgeInsets.only(top: 100).r,
                 child: BlueButton(
                   height: 45,
                   width: 400,
-                  buttonName: "Continue",
                   color: RGBColorManager.rgbDarkBlueColor,
-                  onPressed: () {},
+                  onPressed: () {
+                    if (buttonClickedTimes.value) {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return Dialog(
+                            backgroundColor: ColorManager.whiteColor,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.all(
+                                    const Radius.circular(20.0).w)),
+                            child: Container(
+                              padding: const EdgeInsets.all(15).w,
+                              height: 300.h,
+                              child: Column(
+                                children: [
+                                  Container(
+                                    height: 100.h,
+                                    width: 100.w,
+                                    decoration: const BoxDecoration(
+                                      image: DecorationImage(
+                                          image: AssetImage(
+                                              ImageAssets.secureImage),
+                                          fit: BoxFit.cover),
+                                    ),
+                                  ),
+                                  Text(
+                                    "Congratulations!",
+                                    style: fontWeightSizeColorTextStyle(
+                                      FontWeightManager.bold,
+                                      18.sp,
+                                      RGBColorManager.rgbBlueColor,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 10),
+                                    child: Text(
+                                      "Your account is ready to use. You wil be redirected to the Home page in few seconds ..",
+                                      style: fontSizeTextStyle(
+                                        14,
+                                      ),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ),
+                                  Lottie.asset(AnimationAssets.loadingAnimation,
+                                      height: 80.h),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                      );
+                      navigation();
+                    }
+                  },
                   borderRadius: 30,
+                  child: const Text('Continue'),
                 ),
               ),
             ],

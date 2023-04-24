@@ -11,27 +11,29 @@ final List<GetPage<dynamic>> routes = [
   GetPage(name: "/OnBoardingScreen", page: () => OnBoardingScreen()),
   GetPage(
       name: "/SignupScreen",
-      page: () =>  SignupScreen(),
+      page: () => SignupScreen(),
       transition: Transition.downToUp,
       transitionDuration: const Duration(milliseconds: 250)),
   GetPage(
       name: "/ForgetPassword",
-      page: () =>  ForgetPassword(),
+      page: () => ForgetPassword(),
       transition: Transition.downToUp,
       transitionDuration: const Duration(milliseconds: 250)),
   GetPage(
       name: "/LoginScreen",
-      page: () =>  LoginScreen(),
+      page: () => LoginScreen(),
       transition: Transition.rightToLeft,
       transitionDuration: const Duration(milliseconds: 250)),
   GetPage(
       name: "/SocialScreen",
-      page: () =>  SocialScreen(),
+      page: () => SocialScreen(),
       transition: Transition.fade,
       transitionDuration: const Duration(milliseconds: 250)),
-  GetPage(name: "/UserFillProfile", page: () =>  UserFillProfile()),
-  GetPage(name: "/CreatePinScreen", page: () =>  CreatePinScreen()),
-
-
-
+  GetPage(name: "/UserFillProfile", page: () => UserFillProfile()),
+  GetPage(name: "/CreatePinScreen", page: () => CreatePinScreen()),
+  GetPage(
+      name: "/HomePage",
+      page: () => HomePage(),
+      transition: Transition.fade,
+      transitionDuration: const Duration(milliseconds: 350)),
 ];

@@ -29,139 +29,150 @@ class UserFillProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(15.0).w,
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    const BackIconButton(),
-                    Text(
-                      "Fill your profile",
-                      style: TextStyle(fontSize: 16.sp),
-                    ),
-                  ],
-                ),
-                Stack(
-                  children: [
-                    CircleAvatar(
-                      radius: 70.w,
-                      backgroundColor: RGBColorManager.rgbWhiteColor,
-                      child: Container(padding: const EdgeInsets.all(20),child: Image.asset(IconsAssets.userIcon),),
-                    ),
-                    Positioned(
-                      left: 120,
-                      top: 125,
-                      child: Container(
-                        padding: const EdgeInsets.all(3),
-                        height: 25.h,
-                        width: 35.w,
-                        decoration: BoxDecoration(
-                            color: ColorManager.whiteColor,
-                            borderRadius: BorderRadius.circular(10)),
-                        child: Image.asset(IconsAssets.editIcon),
+    return GestureDetector(
+      onTap: () {
+        FocusScopeNode currentFocus = FocusScope.of(context);
+        if (!currentFocus.hasPrimaryFocus) {
+          currentFocus.unfocus();
+        }
+      },
+      child: Scaffold(
+        body: SafeArea(
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.all(15.0).w,
+              child: Column(
+                children: [
+                  Text(
+                    "Fill your profile",
+                    style: fontSizeTextStyle(16),
+                  ),
+                  Stack(
+                    children: [
+                      CircleAvatar(
+                        radius: 70.w,
+                        backgroundColor: RGBColorManager.rgbWhiteColor,
+                        child: Container(
+                          padding: const EdgeInsets.all(20),
+                          child: Image.asset(IconsAssets.userIcon),
+                        ),
                       ),
-                    )
-                  ],
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 15).r,
-                  child: NormalTextFiled(
-                    readOnly: false,
-                    topPadding: 0,
-                    leftPadding: 0,
-                    hintText: "Full name",
-                    controller: nameCtrl,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 5).r,
-                  child: NormalTextFiled(
-                    readOnly: false,
-                    topPadding: 0,
-                    leftPadding: 0,
-                    hintText: "Nick name",
-                    controller: nickNameCtrl,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 5).r,
-                  child: NormalTextFiled(
-                    readOnly: true,
-                    topPadding: 0,
-                    leftPadding: 0,
-                    hintText: "$selectedDate".split(' ')[0],
-                    controller: null,
-                    child: IconButton(
-                        padding: EdgeInsets.zero,
-                        icon: Image.asset(
-                          IconsAssets.calenderIcon,
-                          height: 25,
+                      Positioned(
+                        left: 120,
+                        top: 125,
+                        child: Container(
+                          padding: const EdgeInsets.all(3),
+                          height: 25.h,
+                          width: 35.w,
+                          decoration: BoxDecoration(
+                              color: ColorManager.whiteColor,
+                              borderRadius: BorderRadius.circular(10)),
+                          child: Image.asset(IconsAssets.editIcon),
                         ),
-                        onPressed: () {
-                          _selectDate(context);
-                        }),
+                      )
+                    ],
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 5).r,
-                  child: NormalTextFiled(
-                    readOnly: false,
-                    topPadding: 0,
-                    leftPadding: 0,
-                    hintText: "Email",
-                    controller: null,
-                    child: Image.asset(
-                      IconsAssets.mailIcon,
-                      height: 35,
+                  Padding(
+                    padding: const EdgeInsets.only(top: 15).r,
+                    child: NormalTextFiled(
+                      color: ColorManager.whiteColor,
+                      readOnly: false,
+                      topPadding: 0,
+                      leftPadding: 0,
+                      hintText: "Full name",
+                      controller: nameCtrl,
                     ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 5).r,
-                  child: Consumer<DropDown>(
-                    builder: (context, value, child) {
-                      return NormalTextFiled(
-                        readOnly: true,
-                        topPadding: 0,
-                        leftPadding: 0,
-                        hintText: dropDownValue,
-                        controller: null,
-                        child: DropdownButton(
-                          isDense: true,
-                          icon: const Icon(Icons.keyboard_arrow_down),
-                          items: items.map((String items) {
-                            return DropdownMenuItem(
-                              value: items,
-                              child: Text(items),
-                            );
-                          }).toList(),
-                          onChanged: (String? newValue) {
-                            dropDownValue = value.update(
-                                newValue.toString(), dropDownValue);
-                          },
-                        ),
-                      );
-                    },
+                  Padding(
+                    padding: const EdgeInsets.only(top: 5).r,
+                    child: NormalTextFiled(
+                      color: ColorManager.whiteColor,
+                      readOnly: false,
+                      topPadding: 0,
+                      leftPadding: 0,
+                      hintText: "Nick name",
+                      controller: nickNameCtrl,
+                    ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 30).r,
-                  child: BlueButton(
-                    height: 45,
-                    width: 400,
-                    buttonName: "Continue",
-                    color: RGBColorManager.rgbDarkBlueColor,
-                    onPressed: () {
-                      Get.toNamed("/CreatePinScreen");
-                    },
-                    borderRadius: 30,
+                  Padding(
+                    padding: const EdgeInsets.only(top: 5).r,
+                    child: NormalTextFiled(
+                      color: ColorManager.whiteColor,
+                      readOnly: true,
+                      topPadding: 0,
+                      leftPadding: 0,
+                      hintText: "$selectedDate".split(' ')[0],
+                      controller: null,
+                      child: IconButton(
+                          padding: const EdgeInsets.only(right: 3).r,
+                          constraints: const BoxConstraints(),
+                          icon: Image.asset(
+                            IconsAssets.calenderIcon,
+                          ),
+                          onPressed: () {
+                            _selectDate(context);
+                          }),
+                    ),
                   ),
-                ),
-              ],
+                  Padding(
+                    padding: const EdgeInsets.only(top: 5).r,
+                    child: NormalTextFiled(
+                      color: ColorManager.whiteColor,
+                      readOnly: false,
+                      topPadding: 0,
+                      leftPadding: 0,
+                      hintText: "Email",
+                      controller: null,
+                      child: Image.asset(
+                        IconsAssets.mailIcon,
+                        height: 25.h,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 5).r,
+                    child: Consumer<DropDown>(
+                      builder: (context, value, child) {
+                        return NormalTextFiled(
+                          color: ColorManager.whiteColor,
+                          readOnly: true,
+                          topPadding: 0,
+                          leftPadding: 0,
+                          hintText: dropDownValue,
+                          controller: null,
+                          child: DropdownButton(
+                            isDense: true,
+                            icon: const Icon(Icons.keyboard_arrow_down),
+                            items: items.map((String items) {
+                              return DropdownMenuItem(
+                                value: items,
+                                child: Text(items),
+                              );
+                            }).toList(),
+                            onChanged: (String? newValue) {
+                              dropDownValue = value.update(
+                                  newValue.toString(), dropDownValue);
+                            },
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 30).r,
+                    child: BlueButton(
+                      height: 45,
+                      width: 400,
+                      color: RGBColorManager.rgbDarkBlueColor,
+                      onPressed: () {
+                        Get.toNamed("/CreatePinScreen");
+                      },
+                      borderRadius: 30,
+                      child: const Text("Continue"),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),

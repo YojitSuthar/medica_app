@@ -10,6 +10,7 @@ class NormalTextFiled extends StatelessWidget {
     required this.topPadding,
     required this.leftPadding,
     required this.readOnly,
+    required this.color,
     this.prefixIcon,
     this.child,
   });
@@ -21,6 +22,7 @@ class NormalTextFiled extends StatelessWidget {
   final double topPadding;
   final double leftPadding;
   final bool readOnly;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -29,8 +31,9 @@ class NormalTextFiled extends StatelessWidget {
       padding: const EdgeInsets.only(left: 15, right: 15).r,
       height: 45.h,
       decoration: BoxDecoration(
+        color: color,
           border: Border.all(color: ColorManager.greyColor, width: 1),
-          borderRadius: BorderRadius.circular(20).w),
+          borderRadius: BorderRadius.circular(15).w),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

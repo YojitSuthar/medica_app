@@ -37,3 +37,8 @@ TextStyle fontSizeColorTextStyle(double fontSize,  Color color){
 TextStyle fontSizeWeightTextStyle(double fontSize,  FontWeight weight,){
   return TextStyle(fontSize: fontSize.sp,fontWeight: weight,);
 }
+
+//Size
+TextStyle fontSizeTextStyle(double fontSize){
+  return TextStyle(fontSize: fontSize.sp);
+}

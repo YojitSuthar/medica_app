@@ -19,24 +19,24 @@ class IntroScreen extends StatelessWidget {
                 Image.asset(ImageAssets.doctorImage,fit:BoxFit.fill,),
                 Text(
                   "Welcome to\n Medica! 👋",
-                  style: TextStyle(
-                      fontSize: 40.sp, color: RGBColorManager.rgbBlueColor),
+                  style: fontSizeColorTextStyle(
+                       40, RGBColorManager.rgbBlueColor),
                 ),
                 Container(
                   padding: EdgeInsets.all(30.w),
                   child: const Text(
-                      "The best online doctor appoinment & consulation app of the century for yout health and medical needs!",
+                      "The best online doctor appointment & consultation app of the century for yout health and medical needs!",
                       textAlign: TextAlign.center),
                 ),
                 BlueButton(
                   height: 50,
                   width: 170,
-                  buttonName: "Continue",
                   color: RGBColorManager.rgbBlueColor,
                   onPressed: () {
                     Get.toNamed("/OnBoardingScreen");
                   },
                   borderRadius: 20,
+                 child: const Text("Continue"),
                 )
               ],
             ),

@@ -15,6 +15,7 @@ class ImageAssets {
   static const String boarding_3Image = "$IMAGES_PATH/boardingimg_3.png";
   static const String socialImage = "$IMAGES_PATH/social-image.png";
   static const String companyLogoImage = "$IMAGES_PATH/company-logo.png";
+  static const String secureImage = "$IMAGES_PATH/secure.png";
 
 }
 
@@ -33,4 +34,26 @@ class IconsAssets {
   static const String editIcon = "$ICONS_PATH/edit.png";
   static const String userIcon = "$ICONS_PATH/user (1).png";
   static const String calenderIcon = "$ICONS_PATH/calendar.png";
+  static const String likeIcon = "$ICONS_PATH/heart.png";
+  static const String notificationIcon = "$ICONS_PATH/notification.png";
+  static const String filterIcon = "$ICONS_PATH/option.png";
+  static const String searchIcon = "$ICONS_PATH/search.png";
+  static const String peopleIcon = "$ICONS_PATH/people.png";
+  static const String toothIcon = "$ICONS_PATH/tooth.png";
+  static const String jointIcon = "$ICONS_PATH/joint.png";
+  static const String nutritionIcon = "$ICONS_PATH/healthy-food.png";
+  static const String familyIcon = "$ICONS_PATH/family.png";
+  static const String eyeIcon = "$ICONS_PATH/eye.png";
+  static const String brainIcon = "$ICONS_PATH/eye.png";
+  static const String moreIcon = "$ICONS_PATH/more.png";
+  static const String userUnfilledIcon = "$ICONS_PATH/user .png";
+  static const String userFilledIcon = "$ICONS_PATH/user-filled.png";
+  static const String timeTableUnfilledIcon = "$ICONS_PATH/timetable.png";
+  static const String timeTableFilledIcon = "$ICONS_PATH/timetable-filled.png";
+  static const String officeUnfilledIcon = "$ICONS_PATH/office.png";
+  static const String officeFilledIcon = "$ICONS_PATH/office-filled.png";
+  static const String homeUnfilledIcon = "$ICONS_PATH/home.png";
+  static const String homeFilledIcon = "$ICONS_PATH/home-filled.png";
+  static const String historyUnfilledIcon = "$ICONS_PATH/history.png";
+  static const String historyFilledIcon = "$ICONS_PATH/history-filled.png";
 }

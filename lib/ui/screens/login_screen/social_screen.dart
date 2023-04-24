@@ -72,12 +72,12 @@ class SocialScreen extends StatelessWidget {
                 child: BlueButton(
                   height: 45,
                   width: 400,
-                  buttonName: "Sign in with password",
                   color: RGBColorManager.rgbBlueColor,
                   onPressed: () {
                     Get.toNamed("/LoginScreen");
                   },
                   borderRadius: 30,
+                  child: const Text("Sign in with Email"),
                 ),
               ),
               Container(

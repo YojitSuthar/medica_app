@@ -22,17 +22,13 @@ class RichTxt extends StatelessWidget {
       child: RichText(
         text: TextSpan(
           text: text_1,
-          style: TextStyle(
-              color: ColorManager.blackColor,
-              fontSize: 13.sp,
-              fontWeight: FontWeightManager.bold),
+          style: fontWeightSizeColorTextStyle(FontWeightManager.bold,
+              13, ColorManager.blackColor),
           children: <TextSpan>[
             TextSpan(
-                text:text_2,
-                style: TextStyle(
-                    color: RGBColorManager.rgbDarkBlueColor,
-                    fontSize: 13.sp,
-                    fontWeight: FontWeightManager.bold))
+                text: text_2,
+                style: fontWeightSizeColorTextStyle(FontWeightManager.bold,
+                    13, RGBColorManager.rgbDarkBlueColor))
           ],
         ),
       ),

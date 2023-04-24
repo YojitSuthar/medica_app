@@ -31,6 +31,8 @@ class LoginScreen extends StatelessWidget {
                     label: "Login to your account",
                   ),
                   NormalTextFiled(
+                    color: ColorManager.whiteColor,
+
                     readOnly: false,
                     prefixIcon: Image.asset(IconsAssets.mailIcon,height:35,),
                     topPadding: 0,
@@ -50,7 +52,7 @@ class LoginScreen extends StatelessWidget {
                       const CheckBoxWidget(),
                       Text(
                         "Remember me",
-                        style: TextStyle(fontSize: 13.sp),
+                        style: fontSizeTextStyle(13),
                       )
                     ],
                   ),
@@ -59,12 +61,12 @@ class LoginScreen extends StatelessWidget {
                     child: BlueButton(
                       height: 45,
                       width: 400,
-                      buttonName: "Sign in",
                       color: RGBColorManager.rgbDarkBlueColor,
                       onPressed: () {
-                        Get.toNamed("/UserFillProfile");
+                        Get.offAllNamed("/UserFillProfile");
                       },
                       borderRadius: 30,
+                        child: const Text("Sign in"),
                     ),
                   ),
                   Padding(

@@ -20,19 +20,21 @@ class OnBoardingScreen extends StatelessWidget {
               Expanded(
                 child: PageView(
                   onPageChanged: (index) {
-                      button.onChange(index);
+                    button.onChange(index);
                   },
                   controller: controller,
                   children: <Widget>[
                     Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Image.asset(ImageAssets.boarding_1Image,height: 250.h,),
+                        Image.asset(
+                          ImageAssets.boarding_1Image,
+                          height: 250.h,
+                        ),
                         Text(
                           "Thousands of doctors & experts to help your health! ",
-                          style: TextStyle(
-                              fontSize: 30.sp,
-                              color: RGBColorManager.rgbBlueColor),
+                          style: fontSizeColorTextStyle(
+                              30, RGBColorManager.rgbBlueColor),
                           textAlign: TextAlign.center,
                         )
                       ],
@@ -40,12 +42,11 @@ class OnBoardingScreen extends StatelessWidget {
                     Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Image.asset(ImageAssets.boarding_2Image,height: 250.h),
+                        Image.asset(ImageAssets.boarding_2Image, height: 250.h),
                         Text(
                           "Health checks & consultations easily anywhere anytime",
-                          style: TextStyle(
-                              fontSize: 30.sp,
-                              color: RGBColorManager.rgbBlueColor),
+                          style: fontSizeColorTextStyle(
+                              30, RGBColorManager.rgbBlueColor),
                           textAlign: TextAlign.center,
                         )
                       ],
@@ -53,12 +54,11 @@ class OnBoardingScreen extends StatelessWidget {
                     Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Image.asset(ImageAssets.boarding_3Image,height: 250.h),
+                        Image.asset(ImageAssets.boarding_3Image, height: 250.h),
                         Text(
                           "Let's start living healthy and well with us right now !",
-                          style: TextStyle(
-                              fontSize: 30.sp,
-                              color: RGBColorManager.rgbBlueColor),
+                          style: fontSizeColorTextStyle(
+                              30, RGBColorManager.rgbBlueColor),
                           textAlign: TextAlign.center,
                         )
                       ],
@@ -81,16 +81,20 @@ class OnBoardingScreen extends StatelessWidget {
                   child: BlueButton(
                     height: 45,
                     width: 400,
-                    buttonName: value.change?"Get started":"Next",
                     color: RGBColorManager.rgbBlueColor,
-                    onPressed:value.change? () {
-                      Get.offAllNamed("/SocialScreen");
-                    }:(){
-                      controller.nextPage(
-                          duration: const Duration(milliseconds: 250),
-                          curve: Curves.easeIn);
-                    },
+                    onPressed: value.change
+                        ? () {
+                            Get.offAllNamed("/SocialScreen");
+                          }
+                        : () {
+                            controller.nextPage(
+                                duration: const Duration(milliseconds: 250),
+                                curve: Curves.easeIn);
+                          },
                     borderRadius: 20,
+                    child: value.change
+                        ? const Text("Get Started")
+                        : const Text("Next"),
                   ),
                 );
               })
