@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:medica/resources/import_resources.dart';
 import '../../../../provider/provider.dart';
@@ -33,7 +32,7 @@ class CategoryButton extends StatelessWidget {
                 value.data.contains(index) ? RGBColorManager.rgbBlueColor : ColorManager.whiteColor,
                 side: BorderSide(width: 1.w, color: RGBColorManager.rgbBlueColor),
                 shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15.0).w)),
+                    borderRadius: BorderRadius.circular(12.0).w)),
             child: Text(
               label,
               style: fontWeightSizeColorTextStyle(

@@ -24,7 +24,7 @@ class SocialScreen extends StatelessWidget {
               // const BackIconButton(),
               Center(
                   child: SizedBox(
-                    height: 250.h,
+                    height: 255.h,
                     child: Column(
                       children: [
                         Image.asset(

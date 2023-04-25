@@ -7,7 +7,6 @@ class AnimationAssets {
   static const String loadingAnimation = "$ANIMATION_PATH/loading-animation-blue.json";
 }
 
-
 class ImageAssets {
   static const String doctorImage = "$ICONS_PATH/doctor.png";
   static const String boarding_1Image = "$IMAGES_PATH/boardingimg_1.png";
@@ -16,9 +15,13 @@ class ImageAssets {
   static const String socialImage = "$IMAGES_PATH/social-image.png";
   static const String companyLogoImage = "$IMAGES_PATH/company-logo.png";
   static const String secureImage = "$IMAGES_PATH/secure.png";
-
+  static const String doctor_1Image = "$IMAGES_PATH/doctor_1.png";
+  static const String doctor_2Image = "$IMAGES_PATH/doctor_2.png";
+  static const String doctor_3Image = "$IMAGES_PATH/doctor_3.png";
+  static const String doctor_4Image = "$IMAGES_PATH/doctor_4.png";
+  static const String doctor_5Image = "$IMAGES_PATH/doctor_5.png";
+  static const String doctor_6Image = "$IMAGES_PATH/doctor_6.png";
 }
-
 
 class IconsAssets {
   static const String careIcon = "$ICONS_PATH/care.png";
@@ -35,9 +38,11 @@ class IconsAssets {
   static const String userIcon = "$ICONS_PATH/user (1).png";
   static const String calenderIcon = "$ICONS_PATH/calendar.png";
   static const String likeIcon = "$ICONS_PATH/heart.png";
+  static const String likeFilledIcon = "$ICONS_PATH/heart-filled.png";
   static const String notificationIcon = "$ICONS_PATH/notification.png";
   static const String filterIcon = "$ICONS_PATH/option.png";
   static const String searchIcon = "$ICONS_PATH/search.png";
+  static const String searchBlackIcon = "$ICONS_PATH/search_black.png";
   static const String peopleIcon = "$ICONS_PATH/people.png";
   static const String toothIcon = "$ICONS_PATH/tooth.png";
   static const String jointIcon = "$ICONS_PATH/joint.png";
@@ -56,4 +61,6 @@ class IconsAssets {
   static const String homeFilledIcon = "$ICONS_PATH/home-filled.png";
   static const String historyUnfilledIcon = "$ICONS_PATH/history.png";
   static const String historyFilledIcon = "$ICONS_PATH/history-filled.png";
+  static const String moreBlackIcon = "$ICONS_PATH/more_black.png";
+  static const String ratingIcon = "$ICONS_PATH/rating.png";
 }

@@ -6,13 +6,11 @@ class RGBColorManager{
   static Color rgbDarkBlueColor=const Color.fromRGBO(39, 86, 189, 1);
   static Color rgbWhiteColor=const Color.fromRGBO(241, 242, 245, 1);
   static Color rgbWhiteBlueColor=const Color.fromRGBO(236, 242, 254, 1);
-
-
 }
-
 
 class ColorManager{
   static Color greyColor= Colors.grey;
+  static Color grey300Color= Colors.grey.shade300;
   static Color darkGreyColor= Colors.grey.shade700;
   static Color grey200Color= Colors.grey.shade200;
   static Color grey400Color= Colors.grey.shade400;
@@ -23,6 +21,7 @@ class ColorManager{
   static Color greenColor= Colors.green;
   static Color redColor= Colors.red;
   static Color lightBlueColor= Colors.lightBlue;
+  static Color blueColor= Colors.blue;
   static Color whiteColor= Colors.white;
   static Color pinkColor= Colors.pink;
 }

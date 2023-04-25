@@ -76,7 +76,7 @@ class CreatePinScreen extends StatelessWidget {
                                     const Radius.circular(20.0).w)),
                             child: Container(
                               padding: const EdgeInsets.all(15).w,
-                              height: 300.h,
+                              height: 320.h,
                               child: Column(
                                 children: [
                                   Container(

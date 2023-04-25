@@ -27,6 +27,8 @@ class MyApp extends StatelessWidget {
         builder: (context, child) {
           return GetMaterialApp(
             theme: ThemeData(
+              appBarTheme:
+                  AppBarTheme(backgroundColor: ColorManager.whiteColor),
               fontFamily: "SansJP",
               scaffoldBackgroundColor: ColorManager.whiteColor,
             ),

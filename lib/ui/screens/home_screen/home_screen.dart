@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medica/data/doctor_data.dart';
 import 'package:medica/resources/import_resources.dart';
 import 'package:medica/resources/resources.dart';
 import '../reuse_widget/reuse_widget.dart';
@@ -10,7 +11,7 @@ class HomePage extends StatelessWidget {
   List<Map<String, String>> doctorSpeciality = [
     {"label": "General", "icon": IconsAssets.peopleIcon},
     {"label": "Dentist", "icon": IconsAssets.toothIcon},
-    {"label": "ophthalmologist", "icon": IconsAssets.eyeIcon},
+    {"label": "Ophthalmologist", "icon": IconsAssets.eyeIcon},
     {"label": "Nutrition", "icon": IconsAssets.nutritionIcon},
     {"label": "Neurologist", "icon": IconsAssets.brainIcon},
     {"label": "Pediatric", "icon": IconsAssets.familyIcon},
@@ -18,19 +19,6 @@ class HomePage extends StatelessWidget {
     {"label": "More", "icon": IconsAssets.moreIcon},
   ];
 
-  static final List doctorCategory = [
-    "All",
-    "General",
-    "Dentist",
-    "Nutritionist",
-    "ophthalmologist",
-    "Radiologist",
-    "Pediatric",
-    "Neurologist",
-    "Dermatologists",
-    "General Surgeon",
-    "Cardiologist",
-  ];
 
   List<Map<String, String>> buttomNav = [
     {
@@ -72,7 +60,6 @@ class HomePage extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           toolbarHeight: 65.h,
-          backgroundColor: ColorManager.whiteColor,
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -84,7 +71,7 @@ class HomePage extends StatelessWidget {
                         "https://c4.wallpaperflare.com/wallpaper/529/555/624/mask-neon-person-photography-wallpaper-preview.jpg"),
                   ),
                   Container(
-                    height: 40.h,
+                    height: 45.h,
                     margin: const EdgeInsets.only(left: 10),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -110,9 +97,16 @@ class HomePage extends StatelessWidget {
               Row(
                 children: [
                   IcnButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        debugPrint("NotificationScreen");
+                        Get.toNamed("/NotificationScreen");
+                      },
                       iconAsset: IconsAssets.notificationIcon),
-                  IcnButton(onPressed: () {}, iconAsset: IconsAssets.likeIcon),
+                  IcnButton(
+                      onPressed: () {
+                        Get.toNamed("/WishListScreen");
+                      },
+                      iconAsset: IconsAssets.likeIcon),
                 ],
               )
             ],
@@ -121,6 +115,7 @@ class HomePage extends StatelessWidget {
         ),
         body: SafeArea(
           child: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
             child: Padding(
               padding: const EdgeInsets.only(left: 15, right: 15).r,
               child: Column(
@@ -139,7 +134,7 @@ class HomePage extends StatelessWidget {
                   ),
                   Container(
                     margin: const EdgeInsets.only(top: 15).w,
-                    height: 150.h,
+                    height: 160.h,
                     padding: EdgeInsets.all(15.w),
                     decoration: BoxDecoration(
                         color: ColorManager.grey400Color,
@@ -203,7 +198,7 @@ class HomePage extends StatelessWidget {
                     height: 190.h,
                     child: GridView.builder(
                       physics: const NeverScrollableScrollPhysics(),
-                      itemCount: 8,
+                      itemCount: doctorSpeciality.length,
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 4,
@@ -225,12 +220,14 @@ class HomePage extends StatelessWidget {
                               ),
                             ),
                             Center(
-                                child: DesignText(
-                                    text: doctorSpeciality[index]["label"]
-                                        .toString(),
-                                    fontSize: 12,
-                                    color: ColorManager.blackColor,
-                                    padding: 5)),
+                              child: DesignText(
+                                text:
+                                    doctorSpeciality[index]["label"].toString(),
+                                fontSize: 12,
+                                color: ColorManager.blackColor,
+                                padding: 5,
+                              ),
+                            ),
                           ],
                         );
                       },
@@ -260,39 +257,105 @@ class HomePage extends StatelessWidget {
                         itemCount: doctorSpeciality.length,
                         itemBuilder: (BuildContext context, index) {
                           return CategoryButton(
-                            label: doctorCategory[index].toString(),
+                            label: DoctorDataList.doctorCategory[index].toString(),
                             index: index,
                           );
                         },
                       ),
                     ),
                   ),
+                  SizedBox(
+                    height: 220.h,
+                    child: ListView.builder(
+                      physics: const BouncingScrollPhysics(),
+                      scrollDirection: Axis.horizontal,
+                      itemCount: DoctorDataList.doctorData.length,
+                      itemBuilder: (BuildContext context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.all(10).w,
+                          child: Container(
+                            width: 150.w,
+                            decoration: BoxDecoration(
+                                border: Border.all(
+                                    color: ColorManager.grey400Color,
+                                    width: 1.2),
+                                borderRadius: BorderRadius.circular(10).w),
+                            child: Column(
+                              children: [
+                                Container(
+                                  height: 130.h,
+                                  width: double.infinity,
+                                  decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                          image: AssetImage(DoctorDataList.doctorData[index]
+                                                  ["Image"]
+                                              .toString()),
+                                          fit: BoxFit.fill),
+                                      borderRadius: const BorderRadius.only(
+                                              topLeft: Radius.circular(9),
+                                              topRight: Radius.circular(9))
+                                          .r),
+                                ),
+                                DesignText(
+                                    text: DoctorDataList.doctorData[index]["Name"].toString(),
+                                    fontSize: 15,
+                                    color: ColorManager.blackColor,
+                                    padding: 5),
+                                DesignText(
+                                    text: DoctorDataList.doctorData[index]["work"].toString(),
+                                    fontSize: 10,
+                                    color: ColorManager.greyColor,
+                                    padding: 10),
+                              ],
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  )
                 ],
               ),
             ),
           ),
         ),
         bottomNavigationBar: Container(
-          padding: const EdgeInsets.only(top: 10,bottom: 10,left: 13,right: 13).r,
-          height: 70.h,
+          padding: const EdgeInsets.all(10),
+          height: 75.h,
           color: ColorManager.whiteColor,
-          child: SizedBox(
-            height: 50.h,
-            child: ListView.builder(
-                physics: const NeverScrollableScrollPhysics(),
-                scrollDirection: Axis.horizontal,
-                itemCount: buttomNav.length,
-                itemBuilder: (BuildContext context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.only(right: 10.5, left: 10.5).r,
-                    child: BottumNavButton(
-                      label: buttomNav[index]["label"].toString(),
-                      inDex: index,
-                      onSelectImageAsset: buttomNav[index]["Select"].toString(),
-                      notSelectImageAsset: buttomNav[index]["notSelect"].toString(),
-                    ),
-                  );
-                }),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              BottumNavButton(
+                label: buttomNav[0]["label"].toString(),
+                inDex: 0,
+                onSelectImageAsset: buttomNav[0]["Select"].toString(),
+                notSelectImageAsset: buttomNav[0]["notSelect"].toString(),
+              ),
+              BottumNavButton(
+                label: buttomNav[1]["label"].toString(),
+                inDex: 1,
+                onSelectImageAsset: buttomNav[1]["Select"].toString(),
+                notSelectImageAsset: buttomNav[1]["notSelect"].toString(),
+              ),
+              BottumNavButton(
+                label: buttomNav[2]["label"].toString(),
+                inDex: 2,
+                onSelectImageAsset: buttomNav[2]["Select"].toString(),
+                notSelectImageAsset: buttomNav[2]["notSelect"].toString(),
+              ),
+              BottumNavButton(
+                label: buttomNav[3]["label"].toString(),
+                inDex: 3,
+                onSelectImageAsset: buttomNav[3]["Select"].toString(),
+                notSelectImageAsset: buttomNav[3]["notSelect"].toString(),
+              ),
+              BottumNavButton(
+                label: buttomNav[4]["label"].toString(),
+                inDex: 4,
+                onSelectImageAsset: buttomNav[4]["Select"].toString(),
+                notSelectImageAsset: buttomNav[4]["notSelect"].toString(),
+              ),
+            ],
           ),
         ),
       ),
@@ -324,18 +387,18 @@ class SliderData extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(top: 10),
+          padding: const EdgeInsets.only(top: 8),
           child: BlueButton(
             color: ColorManager.whiteColor,
-            height: 15.h,
+            height: 25.h,
             width: 85.w,
             borderRadius: 10,
             onPressed: () {},
             child: Text("Check Now",
                 style: TextStyle(
-                    fontSize: 12.sp,
+                    fontSize: 10.sp,
                     fontWeight: FontWeightManager.bold,
-                    color: Colors.blue)),
+                    color: ColorManager.blueColor)),
           ),
         )
       ],

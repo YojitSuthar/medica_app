@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medica/resources/import_resources.dart';
 
 
 class IcnButton extends StatelessWidget {
@@ -14,8 +15,8 @@ class IcnButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      onPressed: () {},
-      icon: Image.asset(iconAsset,height: 28,),
+      onPressed: onPressed,
+      icon: Image.asset(iconAsset,height: 21.h,),
     );
   }
 }

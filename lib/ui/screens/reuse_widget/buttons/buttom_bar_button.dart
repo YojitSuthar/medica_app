@@ -23,6 +23,8 @@ class BottumNavButton extends StatelessWidget {
       children: [
         Consumer<BottumNavigation>(builder: (context, value, child) {
           return IconButton(
+            padding: EdgeInsets.zero,
+            // constraints: BoxConstraints(),
               onPressed: () {
                 if (value.contain.contains(inDex)) {
                   debugPrint("change");
@@ -36,13 +38,13 @@ class BottumNavButton extends StatelessWidget {
               },
               icon: value.contain.contains(inDex)
                   ? SizedBox(
-                height: 30,
+                height: 25.h,
                 child: Image.asset(
                   onSelectImageAsset,
                 ),
               )
                   : SizedBox(
-                height: 25,
+                height: 23.h,
                 child: Image.asset(
                   notSelectImageAsset,
                 ),
