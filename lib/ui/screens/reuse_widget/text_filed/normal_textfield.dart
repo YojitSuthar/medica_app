@@ -27,7 +27,7 @@ class NormalTextFiled extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(top: 10).r,
+      margin: const EdgeInsets.only(top: 17).r,
       padding: const EdgeInsets.only(left: 15, right: 15).r,
       height: 45.h,
       decoration: BoxDecoration(

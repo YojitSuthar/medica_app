@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:medica/resources/import_resources.dart';
+import 'package:medica/resources/resources.dart';
 import 'package:medica/ui/screens/reuse_widget/reuse_widget.dart';
 
-import '../../../resources/resources.dart';
 
 class ForgetPassword extends StatelessWidget {
    ForgetPassword({Key? key}) : super(key: key);
@@ -24,7 +24,7 @@ class ForgetPassword extends StatelessWidget {
               NormalTextFiled(
                 color: ColorManager.whiteColor,
                 readOnly: false,
-                prefixIcon: Image.asset(IconsAssets.mailIcon),
+                prefixIcon: Image.asset(IconsAssets.mailIcon,height: 28.h,),
                 topPadding: 0,
                 leftPadding: 10,
                 hintText: "Email",

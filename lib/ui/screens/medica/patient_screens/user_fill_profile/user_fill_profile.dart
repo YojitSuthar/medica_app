@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:medica/provider/provider.dart';
 import 'package:medica/resources/import_resources.dart';
 import 'package:medica/resources/resources.dart';
-import '../../../provider/provider.dart';
-import '../reuse_widget/reuse_widget.dart';
+import 'package:medica/ui/screens/reuse_widget/reuse_widget.dart';
 
 class UserFillProfile extends StatelessWidget {
   UserFillProfile({Key? key}) : super(key: key);
@@ -37,16 +37,19 @@ class UserFillProfile extends StatelessWidget {
         }
       },
       child: Scaffold(
+        appBar: AppBar(
+          elevation: 0,
+          title: Text(
+            "Fill your profile",
+            style: TextStyle(color: ColorManager.blackColor),
+          ),
+        ),
         body: SafeArea(
           child: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.all(15.0).w,
               child: Column(
                 children: [
-                  Text(
-                    "Fill your profile",
-                    style: fontSizeTextStyle(16),
-                  ),
                   Stack(
                     children: [
                       CircleAvatar(
@@ -141,6 +144,7 @@ class UserFillProfile extends StatelessWidget {
                           hintText: dropDownValue,
                           controller: null,
                           child: DropdownButton(
+                            underline: Container(),
                             isDense: true,
                             icon: const Icon(Icons.keyboard_arrow_down),
                             items: items.map((String items) {

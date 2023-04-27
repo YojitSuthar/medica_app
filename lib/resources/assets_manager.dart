@@ -21,6 +21,8 @@ class ImageAssets {
   static const String doctor_4Image = "$IMAGES_PATH/doctor_4.png";
   static const String doctor_5Image = "$IMAGES_PATH/doctor_5.png";
   static const String doctor_6Image = "$IMAGES_PATH/doctor_6.png";
+  static const String profileImage = "$IMAGES_PATH/profile.jpg";
+  static const String backgroundImage = "$IMAGES_PATH/background.jpg";
 }
 
 class IconsAssets {

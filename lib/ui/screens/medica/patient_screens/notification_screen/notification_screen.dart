@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:medica/resources/assets_manager.dart';
-import 'package:medica/resources/color_manager.dart';
 import 'package:medica/resources/import_resources.dart';
-import '../reuse_widget/reuse_widget.dart';
+import '../../../../../resources/resources.dart';
+import '../../../reuse_widget/reuse_widget.dart';
 
 class NotificationScreen extends StatelessWidget {
   const NotificationScreen({Key? key}) : super(key: key);
@@ -42,7 +41,7 @@ class NotificationScreen extends StatelessWidget {
                 itemBuilder: (BuildContext context, index) {
                   return Container(
                     padding: const EdgeInsets.all(10),
-                    height: 130.h,
+                    height: 145.h,
                     width: double.infinity,
                     // color: Colors.pink,
                     child: Column(
@@ -69,7 +68,7 @@ class NotificationScreen extends StatelessWidget {
                                 children: [
                                   DesignText(
                                       text: "Appointment Success!",
-                                      fontSize: 15,
+                                      fontSize: 13,
                                       color: ColorManager.blackColor,
                                       padding: 0),
                                   DesignText(
@@ -86,7 +85,7 @@ class NotificationScreen extends StatelessWidget {
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
                             "You have successfully booked an appointment with Dr. Alan watson on December 24, 2024 ,10.00 am. Don't to activate your remainder ",
-                            style: TextStyle(color: ColorManager.greyColor),
+                            style: TextStyle(color: ColorManager.greyColor,fontSize: 13),
                           ),
                         )
                       ],

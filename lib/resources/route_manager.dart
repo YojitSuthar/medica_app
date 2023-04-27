@@ -3,6 +3,7 @@ import 'package:medica/ui/screens/screens.dart';
 
 final List<GetPage<dynamic>> routes = [
   GetPage(name: "/SplashScreen", page: () => const SplashScreen()),
+  GetPage(name: "/AdminScreen", page: () => const AdminScreen()),
   GetPage(
       name: "/IntroScreen",
       page: () => const IntroScreen(),

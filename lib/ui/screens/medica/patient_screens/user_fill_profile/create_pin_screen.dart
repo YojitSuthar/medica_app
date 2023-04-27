@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:medica/resources/import_resources.dart';
-import '../../../resources/resources.dart';
-import '../reuse_widget/reuse_widget.dart';
+import 'package:medica/resources/resources.dart';
+import '../../../reuse_widget/reuse_widget.dart';
+
 
 class CreatePinScreen extends StatelessWidget {
   CreatePinScreen({Key? key}) : super(key: key);

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:medica/data/doctor_data.dart';
 import 'package:medica/resources/import_resources.dart';
-import '../../../resources/resources.dart';
-import '../reuse_widget/reuse_widget.dart';
+import '../../../../../resources/resources.dart';
+import '../../../reuse_widget/reuse_widget.dart';
+
 
 class WishListScreen extends StatelessWidget {
   const WishListScreen({Key? key}) : super(key: key);
@@ -84,16 +85,20 @@ class WishListScreen extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
+                                      // mainAxisAlignment:
+                                      //     MainAxisAlignment.spaceBetween,
                                       children: [
-                                        DesignText(
-                                            text: DoctorDataList
-                                                .doctorData[index]["Name"]
-                                                .toString(),
-                                            fontSize: 13,
-                                            color: ColorManager.blackColor,
-                                            padding: 0),
+                                        SizedBox(
+                                          width: 140.w,
+                                          child: DesignText(
+                                              text: DoctorDataList
+                                                  .doctorData[index]["Name"]
+                                                  .toString(),
+                                              fontSize: 13,
+                                              color: ColorManager.blackColor,
+                                              padding: 0),
+                                        ),
+                                        const Spacer(),
                                         IconButton(
                                             padding: const EdgeInsets.all(5),
                                             constraints: const BoxConstraints(),
@@ -120,19 +125,19 @@ class WishListScreen extends StatelessWidget {
                                         padding: 0),
                                     Container(
                                       margin: const EdgeInsets.only(top: 5).r,
-                                      width: 130.w,
+                                      width: 125.w,
                                       child: Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Image.asset(
                                             IconsAssets.ratingIcon,
-                                            height: 15.h,
+                                            height: 13.h,
                                             color: RGBColorManager.rgbBlueColor,
                                           ),
                                           DesignText(
                                               text: "4.3 (5,735 reviews) ",
-                                              fontSize: 12,
+                                              fontSize: 10.5,
                                               color: ColorManager.darkGreyColor,
                                               padding: 0)
                                         ],
@@ -173,7 +178,11 @@ class WishListScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                DesignText(text: "Remove from ", fontSize: fontSize, color: color, padding: padding)
+                DesignText(
+                    text: "Remove from ",
+                    fontSize: 20,
+                    color: ColorManager.blackColor,
+                    padding: 0)
               ],
             ),
           ),

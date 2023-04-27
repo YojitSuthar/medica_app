@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:medica/data/doctor_data.dart';
 import 'package:medica/resources/import_resources.dart';
 import 'package:medica/resources/resources.dart';
-import '../reuse_widget/reuse_widget.dart';
+import 'package:medica/ui/screens/reuse_widget/reuse_widget.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
@@ -67,8 +67,7 @@ class HomePage extends StatelessWidget {
                 children: [
                   const CircleAvatar(
                     radius: 25,
-                    backgroundImage: NetworkImage(
-                        "https://c4.wallpaperflare.com/wallpaper/529/555/624/mask-neon-person-photography-wallpaper-preview.jpg"),
+                    backgroundImage: AssetImage(ImageAssets.profileImage),
                   ),
                   Container(
                     height: 45.h,
@@ -139,8 +138,7 @@ class HomePage extends StatelessWidget {
                     decoration: BoxDecoration(
                         color: ColorManager.grey400Color,
                         image: const DecorationImage(
-                            image: NetworkImage(
-                                "https://c4.wallpaperflare.com/wallpaper/641/678/533/digital-art-low-poly-minimalism-2d-wallpaper-preview.jpg"),
+                            image: AssetImage(ImageAssets.backgroundImage),
                             fit: BoxFit.cover),
                         boxShadow: [
                           BoxShadow(
@@ -195,7 +193,7 @@ class HomePage extends StatelessWidget {
                     height: 12.h,
                   ),
                   SizedBox(
-                    height: 190.h,
+                    height: 200.h,
                     child: GridView.builder(
                       physics: const NeverScrollableScrollPhysics(),
                       itemCount: doctorSpeciality.length,
@@ -320,7 +318,7 @@ class HomePage extends StatelessWidget {
         ),
         bottomNavigationBar: Container(
           padding: const EdgeInsets.all(10),
-          height: 75.h,
+          height: 80.h,
           color: ColorManager.whiteColor,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,

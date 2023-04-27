@@ -3,10 +3,11 @@ import 'package:medica/resources/import_resources.dart';
 import 'package:medica/resources/resources.dart';
 import 'package:medica/ui/screens/reuse_widget/reuse_widget.dart';
 
-class LoginScreen extends StatelessWidget {
-  LoginScreen({Key? key}) : super(key: key);
+class SignupScreen extends StatelessWidget {
+  SignupScreen({Key? key}) : super(key: key);
   final TextEditingController emailCtrl = TextEditingController();
   final TextEditingController passwordCtrl = TextEditingController();
+  final TextEditingController usernameCtrl = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,6 @@ class LoginScreen extends StatelessWidget {
       child: Scaffold(
         body: SafeArea(
           child: SingleChildScrollView(
-            physics: const NeverScrollableScrollPhysics(),
             child: Padding(
               padding: const EdgeInsets.all(15).w,
               child: Column(
@@ -28,17 +28,32 @@ class LoginScreen extends StatelessWidget {
                 children: [
                   const BackIconButton(),
                   const CompanyLoginDesign(
-                    label: "Login to your account",
+                    label: "Create new account",
                   ),
                   NormalTextFiled(
                     color: ColorManager.whiteColor,
-
-                    readOnly: false,
-                    prefixIcon: Image.asset(IconsAssets.mailIcon,height:35,),
+                    prefixIcon: Image.asset(
+                      IconsAssets.userIcon,
+                      height: 24.h,
+                      color: ColorManager.grey400Color,
+                    ),
                     topPadding: 0,
-                    leftPadding: 0,
+                    leftPadding: 10,
+                    hintText: "Username",
+                    controller: usernameCtrl,
+                    readOnly: false,
+                  ),
+                  NormalTextFiled(
+                    color: ColorManager.whiteColor,
+                    prefixIcon: Image.asset(
+                      IconsAssets.mailIcon,
+                      height: 28.h,
+                    ),
+                    topPadding: 0,
+                    leftPadding: 10,
                     hintText: "Email",
                     controller: emailCtrl,
+                    readOnly: false,
                   ),
                   PassField(
                     height: 20,
@@ -57,30 +72,14 @@ class LoginScreen extends StatelessWidget {
                     ],
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 10).r,
+                    padding: const EdgeInsets.only(top: 15).r,
                     child: BlueButton(
                       height: 45,
                       width: 400,
                       color: RGBColorManager.rgbDarkBlueColor,
-                      onPressed: () {
-                        Get.offAllNamed("/UserFillProfile");
-                      },
+                      onPressed: () {},
                       borderRadius: 30,
-                        child: const Text("Sign in"),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 10).r,
-                    child: GestureDetector(
-                      onTap: () {
-                        Get.toNamed('/ForgetPassword');
-                      },
-                      child: Center(
-                          child: Text(
-                        "Forget the Password?",
-                        style:
-                            TextStyle(color: RGBColorManager.rgbDarkBlueColor),
-                      )),
+                      child: const Text("Sign up"),
                     ),
                   ),
                   Padding(
@@ -103,8 +102,8 @@ class LoginScreen extends StatelessWidget {
                                 const EdgeInsets.only(left: 20.0, right: 10.0)
                                     .r,
                             child: Divider(
-                              color: ColorManager.blackColor,
                               thickness: 1,
+                              color: ColorManager.blackColor,
                             )),
                       ),
                     ]),
@@ -118,18 +117,17 @@ class LoginScreen extends StatelessWidget {
                       BoxSigninOption(
                         iconAsset: IconsAssets.googleIcon,
                       ),
-                      BoxSigninOption(
-                        iconAsset: IconsAssets.appleIcon,
-                      )
                     ],
                   ),
                   Container(
-                    margin: const EdgeInsets.only(top: 10, bottom: 10).r,
+                    margin: const EdgeInsets.only(top: 20).r,
                     child: Center(
                       child: RichTxt(
-                        text_1: 'Don\'t have any account? ',
-                        text_2: ' Sign up',
-                        onTap: () {Get.toNamed("/SignupScreen");},
+                        text_1: 'Already have an account?',
+                        text_2: ' Sign in',
+                        onTap: () {
+                          Get.toNamed("/LoginScreen");
+                        },
                       ),
                     ),
                   )
