@@ -4,6 +4,7 @@ import 'package:medica/ui/screens/reuse_widget/reuse_widget.dart';
 import '../../../resources/resources.dart';
 
 class BoxDesign extends StatelessWidget {
+
   const BoxDesign({
     super.key,
     required this.image,

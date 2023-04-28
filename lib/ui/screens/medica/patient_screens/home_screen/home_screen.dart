@@ -3,6 +3,7 @@ import 'package:medica/data/doctor_data.dart';
 import 'package:medica/resources/import_resources.dart';
 import 'package:medica/resources/resources.dart';
 import 'package:medica/ui/screens/reuse_widget/reuse_widget.dart';
+
 import '../../../screens.dart';
 
 class HomePage extends StatelessWidget {
