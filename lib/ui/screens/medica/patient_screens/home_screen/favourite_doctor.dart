@@ -19,7 +19,7 @@ class WishListScreen extends StatelessWidget {
             text: "My Favourite Doctor",
             fontSize: 18,
             color: ColorManager.blackColor,
-            padding: 0),
+            padding: 1),
         actions: [
           Row(
             children: [
