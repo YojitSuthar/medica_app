@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:medica/data/doctor_data.dart';
-import '../../../../../resources/resources.dart';
+import '../../../../../../resources/resources.dart';
 
 class ReviewScreen extends StatelessWidget {
   const ReviewScreen({Key? key}) : super(key: key);

@@ -1,9 +1,10 @@
 import 'package:medica/data/doctor_data.dart';
 import 'package:medica/provider/provider.dart';
 import 'package:medica/resources/import_resources.dart';
-import '../../../../../resources/resources.dart';
-import '../../../reuse_widget/reuse_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:medica/resources/resources.dart';
+
+import '../../../../reuse_widget/reuse_widget.dart';
 
 class DoctorProfile extends StatelessWidget {
   final String name;

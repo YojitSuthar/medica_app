@@ -36,7 +36,7 @@ class TopDoctorScreen extends StatelessWidget {
         titleSpacing: 5,
         leading:  const BackIconButton(),
         title: DesignText(
-            text: "My Favourite Doctor",
+            text: "Top Doctor",
             fontSize: 18,
             color: ColorManager.blackColor,
             padding: 0),
