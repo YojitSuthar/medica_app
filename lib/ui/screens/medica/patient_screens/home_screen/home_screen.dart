@@ -3,6 +3,7 @@ import 'package:medica/data/doctor_data.dart';
 import 'package:medica/resources/import_resources.dart';
 import 'package:medica/resources/resources.dart';
 import 'package:medica/ui/screens/reuse_widget/reuse_widget.dart';
+import '../../../screens.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
@@ -32,11 +33,6 @@ class HomePage extends StatelessWidget {
       "notSelect": IconsAssets.timeTableUnfilledIcon
     },
     {
-      "label": "History",
-      "Select": IconsAssets.historyFilledIcon,
-      "notSelect": IconsAssets.historyUnfilledIcon
-    },
-    {
       "label": "Articles",
       "Select": IconsAssets.officeFilledIcon,
       "notSelect": IconsAssets.officeUnfilledIcon
@@ -59,7 +55,7 @@ class HomePage extends StatelessWidget {
       },
       child: Scaffold(
         appBar: AppBar(
-          toolbarHeight: 65.h,
+          toolbarHeight: 55.h,
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -70,7 +66,7 @@ class HomePage extends StatelessWidget {
                     backgroundImage: AssetImage(ImageAssets.profileImage),
                   ),
                   Container(
-                    height: 45.h,
+                    height: 40.h,
                     margin: const EdgeInsets.only(left: 10),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -93,23 +89,26 @@ class HomePage extends StatelessWidget {
                   ),
                 ],
               ),
-              Row(
-                children: [
-                  IcnButton(
-                      onPressed: () {
-                        debugPrint("NotificationScreen");
-                        Get.toNamed("/NotificationScreen");
-                      },
-                      iconAsset: IconsAssets.notificationIcon),
-                  IcnButton(
-                      onPressed: () {
-                        Get.toNamed("/WishListScreen");
-                      },
-                      iconAsset: IconsAssets.likeIcon),
-                ],
-              )
+
             ],
           ),
+          actions: [
+            Row(
+              children: [
+                IcnButton(
+                    onPressed: () {
+                      debugPrint("NotificationScreen");
+                      Get.toNamed("/NotificationScreen");
+                    },
+                    iconAsset: IconsAssets.notificationIcon),
+                IcnButton(
+                    onPressed: () {
+                      Get.toNamed("/WishListScreen");
+                    },
+                    iconAsset: IconsAssets.likeIcon),
+              ],
+            )
+          ],
           elevation: 0,
         ),
         body: SafeArea(
@@ -214,6 +213,7 @@ class HomePage extends StatelessWidget {
                                   RGBColorManager.rgbWhiteBlueColor,
                               child: Image.asset(
                                 doctorSpeciality[index]["icon"].toString(),
+                                color: RGBColorManager.rgbDarkBlueColor,
                                 height: 28.h,
                               ),
                             ),
@@ -239,11 +239,16 @@ class HomePage extends StatelessWidget {
                           fontSize: 15,
                           color: ColorManager.blackColor,
                           padding: 10),
-                      DesignText(
-                          text: "See All",
-                          fontSize: 13,
-                          color: RGBColorManager.rgbBlueColor,
-                          padding: 10),
+                      GestureDetector(
+                        onTap: (){
+                          Get.toNamed("/TopDoctorScreen");
+                        },
+                        child: DesignText(
+                            text: "See All",
+                            fontSize: 13,
+                            color: RGBColorManager.rgbBlueColor,
+                            padding: 10),
+                      ),
                     ],
                   ),
                   Padding(
@@ -255,7 +260,7 @@ class HomePage extends StatelessWidget {
                         itemCount: doctorSpeciality.length,
                         itemBuilder: (BuildContext context, index) {
                           return CategoryButton(
-                            label: DoctorDataList.doctorCategory[index].toString(),
+                            label: DoctorData.doctorCategory[index].toString(),
                             index: index,
                           );
                         },
@@ -263,48 +268,65 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 220.h,
+                    height: 200.h,
                     child: ListView.builder(
                       physics: const BouncingScrollPhysics(),
                       scrollDirection: Axis.horizontal,
-                      itemCount: DoctorDataList.doctorData.length,
+                      itemCount: DoctorData.topDoctor.length,
                       itemBuilder: (BuildContext context, index) {
-                        return Padding(
-                          padding: const EdgeInsets.all(10).w,
-                          child: Container(
-                            width: 150.w,
-                            decoration: BoxDecoration(
-                                border: Border.all(
-                                    color: ColorManager.grey400Color,
-                                    width: 1.2),
-                                borderRadius: BorderRadius.circular(10).w),
-                            child: Column(
-                              children: [
-                                Container(
-                                  height: 130.h,
-                                  width: double.infinity,
-                                  decoration: BoxDecoration(
-                                      image: DecorationImage(
-                                          image: AssetImage(DoctorDataList.doctorData[index]
-                                                  ["Image"]
-                                              .toString()),
-                                          fit: BoxFit.fill),
-                                      borderRadius: const BorderRadius.only(
-                                              topLeft: Radius.circular(9),
-                                              topRight: Radius.circular(9))
-                                          .r),
-                                ),
-                                DesignText(
-                                    text: DoctorDataList.doctorData[index]["Name"].toString(),
-                                    fontSize: 15,
-                                    color: ColorManager.blackColor,
-                                    padding: 5),
-                                DesignText(
-                                    text: DoctorDataList.doctorData[index]["work"].toString(),
-                                    fontSize: 10,
-                                    color: ColorManager.greyColor,
-                                    padding: 10),
-                              ],
+                        return GestureDetector(
+                          onTap: (){
+                            Get.to(
+                              DoctorProfile(
+                                name: DoctorData.topDoctor[index]['Name'],
+                                image:DoctorData.topDoctor[index]['Image'],
+                                review: DoctorData.topDoctor[index]['Reviews'],
+                                special: DoctorData.topDoctor[index]['Special'],
+                              ),
+                            );
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.all(10).w,
+                            child: Container(
+                              width: 150.w,
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                      color: ColorManager.grey400Color,
+                                      width: 1.2),
+                                  borderRadius: BorderRadius.circular(10).w),
+                              child: Column(
+                                children: [
+                                  Container(
+                                    height: 130.h,
+                                    width: double.infinity,
+                                    decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                            image: AssetImage(DoctorData.topDoctor[index]
+                                                    ["Image"]
+                                                .toString()),
+                                            fit: BoxFit.fill),
+                                        borderRadius: const BorderRadius.only(
+                                                topLeft: Radius.circular(9),
+                                                topRight: Radius.circular(9))
+                                            .r),
+                                  ),
+                                  SizedBox(
+                                    width: 120.w,
+                                    child: Center(
+                                      child: DesignText(
+                                          text: DoctorData.topDoctor[index]["Name"].toString(),
+                                          fontSize: 13,
+                                          color: ColorManager.blackColor,
+                                          padding: 5),
+                                    ),
+                                  ),
+                                  DesignText(
+                                      text: DoctorData.topDoctor[index]["Special"].toString(),
+                                      fontSize: 10,
+                                      color: ColorManager.greyColor,
+                                      padding: 10),
+                                ],
+                              ),
                             ),
                           ),
                         );
@@ -346,12 +368,6 @@ class HomePage extends StatelessWidget {
                 inDex: 3,
                 onSelectImageAsset: buttomNav[3]["Select"].toString(),
                 notSelectImageAsset: buttomNav[3]["notSelect"].toString(),
-              ),
-              BottumNavButton(
-                label: buttomNav[4]["label"].toString(),
-                inDex: 4,
-                onSelectImageAsset: buttomNav[4]["Select"].toString(),
-                notSelectImageAsset: buttomNav[4]["notSelect"].toString(),
               ),
             ],
           ),

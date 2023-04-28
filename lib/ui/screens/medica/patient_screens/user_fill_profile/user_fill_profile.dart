@@ -169,7 +169,7 @@ class UserFillProfile extends StatelessWidget {
                       width: 400,
                       color: RGBColorManager.rgbDarkBlueColor,
                       onPressed: () {
-                        Get.toNamed("/CreatePinScreen");
+                        Get.offAllNamed("/HomePage");
                       },
                       borderRadius: 30,
                       child: const Text("Continue"),

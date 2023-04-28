@@ -10,24 +10,19 @@ class NotificationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: const BackIconButton(),
         automaticallyImplyLeading: false,
         elevation: 0,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Row(
-              children: [
-                const BackIconButton(),
-                DesignText(
-                    text: "Notification",
-                    fontSize: 18,
-                    color: ColorManager.blackColor,
-                    padding: 0)
-              ],
-            ),
-            IcnButton(onPressed: () {}, iconAsset: IconsAssets.moreBlackIcon)
-          ],
-        ),
+        titleSpacing: 5,
+
+        title: DesignText(
+            text: "Notification",
+            fontSize: 18,
+            color: ColorManager.blackColor,
+            padding: 0),
+        actions: [
+          IcnButton(onPressed: () {}, iconAsset: IconsAssets.moreBlackIcon)
+        ],
       ),
       body: SafeArea(
           child: Padding(
@@ -81,8 +76,8 @@ class NotificationScreen extends StatelessWidget {
                             )
                           ],
                         ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
+                        const Padding(
+                          padding: EdgeInsets.all(8.0),
                           child: Text(
                             "You have successfully booked an appointment with Dr. Alan watson on December 24, 2024 ,10.00 am. Don't to activate your remainder ",
                             style: TextStyle(color: ColorManager.greyColor,fontSize: 13),

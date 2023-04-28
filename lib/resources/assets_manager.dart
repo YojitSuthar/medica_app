@@ -23,6 +23,14 @@ class ImageAssets {
   static const String doctor_6Image = "$IMAGES_PATH/doctor_6.png";
   static const String profileImage = "$IMAGES_PATH/profile.jpg";
   static const String backgroundImage = "$IMAGES_PATH/background.jpg";
+  static const String patient1Image = '$IMAGES_PATH/patient1.jpeg';
+  static const String patient2Image = '$IMAGES_PATH/patient2.webp';
+  static const String patient3Image = '$IMAGES_PATH/patient3.jpeg';
+  static const String patient4Image = '$IMAGES_PATH/patient4.jpeg';
+  static const String patient5Image = '$IMAGES_PATH/patient5.jpeg';
+  static const String patient6Image = '$IMAGES_PATH/patient6.jpeg';
+  static const String patient7Image = '$IMAGES_PATH/patient7.avif';
+  static const String patient8Image = '$IMAGES_PATH/patient8.jpeg';
 }
 
 class IconsAssets {

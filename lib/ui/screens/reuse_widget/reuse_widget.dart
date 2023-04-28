@@ -5,3 +5,6 @@ export 'check_box.dart';
 export 'rich_text.dart';
 export 'design_text.dart';
 export 'buttons/button.dart';
+export "doctor_info.dart";
+export "tabbar_design.dart";
+export 'box_design.dart';

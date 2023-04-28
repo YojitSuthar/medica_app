@@ -31,9 +31,10 @@ final List<GetPage<dynamic>> routes = [
       transition: Transition.fade,
       transitionDuration: const Duration(milliseconds: 250)),
   GetPage(name: "/UserFillProfile", page: () => UserFillProfile()),
-  GetPage(name: "/CreatePinScreen", page: () => CreatePinScreen()),
   GetPage(name: "/NotificationScreen", page: () => const NotificationScreen()),
   GetPage(name: "/WishListScreen", page: () => const WishListScreen()),
+  GetPage(name: "/ReviewScreen", page: () => const ReviewScreen()),
+  GetPage(name: "/TopDoctorScreen", page: () =>  TopDoctorScreen()),
   GetPage(
       name: "/HomePage",
       page: () => HomePage(),

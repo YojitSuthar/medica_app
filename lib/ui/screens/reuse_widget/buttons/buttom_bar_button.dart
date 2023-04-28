@@ -5,13 +5,13 @@ import '../../../../resources/resources.dart';
 import '../design_text.dart';
 
 class BottumNavButton extends StatelessWidget {
-   BottumNavButton({
-    super.key,
-     required this.label,
-    required this.inDex,
-    required this.onSelectImageAsset,
-    required this.notSelectImageAsset
-  });
+  const BottumNavButton(
+      {super.key,
+      required this.label,
+      required this.inDex,
+      required this.onSelectImageAsset,
+      required this.notSelectImageAsset});
+
   final String label;
   final int inDex;
   final String onSelectImageAsset;
@@ -19,12 +19,12 @@ class BottumNavButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Consumer<BottumNavigation>(builder: (context, value, child) {
-          return IconButton(
-            padding: EdgeInsets.zero,
-            // constraints: BoxConstraints(),
+    return Consumer<BottumNavigation>(
+      builder: (context, value, child) {
+        return Column(
+          children: [
+            IconButton(
+              padding: EdgeInsets.zero,
               onPressed: () {
                 if (value.contain.contains(inDex)) {
                   debugPrint("change");
@@ -38,24 +38,30 @@ class BottumNavButton extends StatelessWidget {
               },
               icon: value.contain.contains(inDex)
                   ? SizedBox(
-                height: 25.h,
-                child: Image.asset(
-                  onSelectImageAsset,
-                ),
-              )
+                      height: 25.h,
+                      child: Image.asset(
+                        onSelectImageAsset,
+                        color: RGBColorManager.rgbDarkBlueColor,
+                      ),
+                    )
                   : SizedBox(
-                height: 23.h,
-                child: Image.asset(
-                  notSelectImageAsset,
-                ),
-              ));
-        }),
-        DesignText(
-            text: label,
-            fontSize: 10,
-            color: ColorManager.grey400Color,
-            padding: 0)
-      ],
+                      height: 23.h,
+                      child: Image.asset(
+                        notSelectImageAsset,
+                        color: ColorManager.grey400Color,
+                      ),
+                    ),
+            ),
+            DesignText(
+                text: label,
+                fontSize: 10,
+                color: value.contain.contains(inDex)
+                    ? RGBColorManager.rgbDarkBlueColor
+                    : ColorManager.grey400Color,
+                padding: 0)
+          ],
+        );
+      },
     );
   }
 }

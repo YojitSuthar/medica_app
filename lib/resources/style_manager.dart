@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:medica/resources/resources.dart';
+
 class FontWeightManager {
   static const FontWeight light = FontWeight.w300;
   static const FontWeight regular = FontWeight.w400;
@@ -10,35 +12,58 @@ class FontWeightManager {
 }
 
 //Size,family
-TextStyle fontSizeFamilyTextStyle(double fontSize, String family){
+TextStyle fontSizeFamilyTextStyle(double fontSize, String family) {
   return TextStyle(fontSize: fontSize.sp, fontFamily: family);
 }
+
 //Size,family,Weight
-TextStyle fontSizeFamilyWeightTextStyle(double fontSize,String fontFamily, FontWeight weight) {
-  return TextStyle(fontSize: fontSize.sp, fontFamily: fontFamily, fontWeight: weight);
+TextStyle fontSizeFamilyWeightTextStyle(
+    double fontSize, String fontFamily, FontWeight weight) {
+  return TextStyle(
+      fontSize: fontSize.sp, fontFamily: fontFamily, fontWeight: weight);
 }
+
 //family,Weight,
-TextStyle fontFamilyWeightTextStyle(String family,FontWeight weight){
+TextStyle fontFamilyWeightTextStyle(String family, FontWeight weight) {
   return TextStyle(fontWeight: weight, fontFamily: family);
 }
+
 //weight,Color
-TextStyle fontWeightColorTextStyle(FontWeight weight,  Color color){
+TextStyle fontWeightColorTextStyle(FontWeight weight, Color color) {
   return TextStyle(fontWeight: weight, color: color);
 }
+
 //weight,size,color
-TextStyle fontWeightSizeColorTextStyle(FontWeight weight,double fontSize,Color color){
-  return TextStyle(fontWeight: weight, color: color,fontSize: fontSize.sp);
+TextStyle fontWeightSizeColorTextStyle(
+    FontWeight weight, double fontSize, Color color) {
+  return TextStyle(fontWeight: weight, color: color, fontSize: fontSize.sp);
 }
+
 //size,Color
-TextStyle fontSizeColorTextStyle(double fontSize,  Color color){
+TextStyle fontSizeColorTextStyle(double fontSize, Color color) {
   return TextStyle(fontSize: fontSize.sp, color: color);
 }
+
 //Size,Weight
-TextStyle fontSizeWeightTextStyle(double fontSize,  FontWeight weight,){
-  return TextStyle(fontSize: fontSize.sp,fontWeight: weight,);
+TextStyle fontSizeWeightTextStyle(
+  double fontSize,
+  FontWeight weight,
+) {
+  return TextStyle(
+    fontSize: fontSize.sp,
+    fontWeight: weight,
+  );
 }
 
 //Size
-TextStyle fontSizeTextStyle(double fontSize){
+TextStyle fontSizeTextStyle(double fontSize) {
   return TextStyle(fontSize: fontSize.sp);
+}
+
+TextStyle getTextStyle(
+    {double fontSize = 14, Color color = ColorManager.blackColor}) {
+  return TextStyle(
+    fontSize: fontSize,
+    color: color,
+  );
 }

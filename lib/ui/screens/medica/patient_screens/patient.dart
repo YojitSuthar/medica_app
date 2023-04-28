@@ -1,5 +1,7 @@
 export 'home_screen/home_screen.dart';
-export 'notification_screen/notification_screen.dart';
-export 'user_fill_profile/create_pin_screen.dart';
+export 'home_screen/notification_screen.dart';
 export 'user_fill_profile/user_fill_profile.dart';
-export 'user_wishlist/wishlist.dart';
+export 'home_screen/favourite_doctor.dart';
+export 'doctor_profile/doctor_profile.dart';
+export 'doctor_profile/doctor_review.dart';
+export 'home_screen/top_doctor.dart';

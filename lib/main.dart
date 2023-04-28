@@ -5,7 +5,7 @@ import 'package:medica/resources/resources.dart';
 import 'ui/screens/screens.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => DropDown()),
         ChangeNotifierProvider(create: (context) => ChangeColor()),
         ChangeNotifierProvider(create: (context) => BottumNavigation()),
+        ChangeNotifierProvider(create: (context) => PickDateProvider()),
       ],
       child: ScreenUtilInit(
         designSize: const Size(360, 690),
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
           return GetMaterialApp(
             theme: ThemeData(
               appBarTheme:
-                  AppBarTheme(backgroundColor: ColorManager.whiteColor),
+                  const AppBarTheme(backgroundColor: ColorManager.whiteColor),
               fontFamily: "SansJP",
               scaffoldBackgroundColor: ColorManager.whiteColor,
             ),
