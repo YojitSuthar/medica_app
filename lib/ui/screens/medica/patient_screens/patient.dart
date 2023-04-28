@@ -5,3 +5,4 @@ export 'home_screen/favourite_doctor.dart';
 export 'home_screen/top_doctor.dart';
 export 'home_screen/doctor_profile/doctor_profile.dart';
 export 'home_screen/doctor_profile/doctor_review.dart';
+export 'home_screen/doctor_profile/book_appointment.dart';

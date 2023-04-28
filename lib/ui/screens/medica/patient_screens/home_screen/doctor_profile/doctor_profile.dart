@@ -138,7 +138,9 @@ class DoctorProfile extends StatelessWidget {
                     height: 45,
                     width: 400,
                     color: RGBColorManager.rgbDarkBlueColor,
-                    onPressed: () {},
+                    onPressed: () {
+                        Get.toNamed('/BookAppointment');
+                    },
                     borderRadius: 30,
                     child: const Text("Booking Appointment"),
                   ),
