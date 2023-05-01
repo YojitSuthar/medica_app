@@ -8,6 +8,7 @@ class TopDoctorScreen extends StatelessWidget {
    TopDoctorScreen({Key? key}) : super(key: key);
   List<Widget> tabs = [
     const Tab(
+      
       text: 'All',
     ),
     const Tab(

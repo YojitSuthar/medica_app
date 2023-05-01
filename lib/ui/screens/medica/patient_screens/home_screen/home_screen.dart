@@ -182,11 +182,17 @@ class HomePage extends StatelessWidget {
                           fontSize: 15,
                           color: ColorManager.blackColor,
                           padding: 10),
-                      DesignText(
-                          text: "See All",
-                          fontSize: 13,
-                          color: RGBColorManager.rgbBlueColor,
-                          padding: 10),
+                      GestureDetector(
+                        onTap: (){
+                          Get.toNamed("/DoctorSpeciality");
+
+                        },
+                        child: DesignText(
+                            text: "See All",
+                            fontSize: 13,
+                            color: RGBColorManager.rgbBlueColor,
+                            padding: 10),
+                      ),
                     ],
                   ),
                   SizedBox(

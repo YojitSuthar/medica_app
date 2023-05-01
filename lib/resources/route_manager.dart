@@ -1,4 +1,3 @@
-import 'package:medica/ui/screens/medica/patient_screens/home_screen/doctor_profile/book_appointment.dart';
 
 import 'import_resources.dart';
 import 'package:medica/ui/screens/screens.dart';
@@ -43,4 +42,5 @@ final List<GetPage<dynamic>> routes = [
       transition: Transition.fade,
       transitionDuration: const Duration(milliseconds: 350)),
   GetPage(name: "/BookAppointment", page: () =>  const BookAppointment()),
+  GetPage(name: "/DoctorSpeciality", page: () =>  const DoctorSpeciality()),
 ];
