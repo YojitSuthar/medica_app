@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:medica/resources/resources.dart';
 
 class FontWeightManager {
@@ -60,10 +61,61 @@ TextStyle fontSizeTextStyle(double fontSize) {
   return TextStyle(fontSize: fontSize.sp);
 }
 
-TextStyle getTextStyle(
-    {double fontSize = 14, Color color = ColorManager.blackColor}) {
-  return TextStyle(
+
+TextStyle getTextStyle(double fontSize, FontWeight fontWeight, Color color) {
+  return GoogleFonts.lato(
     fontSize: fontSize,
+    fontWeight: fontWeight,
     color: color,
+  );
+}
+
+// regular style
+TextStyle getRegularStyle(
+    {double fontSize = 14, Color color = ColorManager.blackColor}) {
+  return getTextStyle(
+    fontSize,
+    FontWeightManager.regular,
+    color,
+  );
+}
+
+// light style
+TextStyle getLightStyle(
+    {double fontSize = 14, Color color = ColorManager.blackColor}) {
+  return getTextStyle(
+    fontSize,
+    FontWeightManager.light,
+    color,
+  );
+}
+
+// bold style
+TextStyle getBoldStyle(
+    {double fontSize = 14, Color color = ColorManager.blackColor}) {
+  return getTextStyle(
+    fontSize,
+    FontWeightManager.bold,
+    color,
+  );
+}
+
+// semi bold style
+TextStyle getSemiBoldStyle(
+    {double fontSize = 14, Color color = ColorManager.blackColor}) {
+  return getTextStyle(
+    fontSize,
+    FontWeightManager.semiBold,
+    color,
+  );
+}
+
+// medium style
+TextStyle getMediumStyle(
+    {double fontSize = 14, Color color = ColorManager.blackColor}) {
+  return getTextStyle(
+    fontSize,
+    FontWeightManager.medium,
+    color,
   );
 }

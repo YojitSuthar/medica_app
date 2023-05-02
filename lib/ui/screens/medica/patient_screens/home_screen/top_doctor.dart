@@ -5,7 +5,7 @@ import '../../../../../resources/resources.dart';
 import '../../../reuse_widget/reuse_widget.dart';
 
 class TopDoctorScreen extends StatelessWidget {
-   TopDoctorScreen({Key? key}) : super(key: key);
+  TopDoctorScreen({Key? key}) : super(key: key);
   List<Widget> tabs = [
     const Tab(
       text: 'All',
@@ -34,18 +34,20 @@ class TopDoctorScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         titleSpacing: 5,
-        leading:  const BackIconButton(),
+        leading: const BackIconButton(),
         title: DesignText(
-            text: "Top Doctor",
-            fontSize: 18,
-            color: ColorManager.blackColor,
-            padding: 0),
+          text: "Top Doctor",
+          fontSize: 18,
+          color: ColorManager.blackColor,
+          padding: 0,
+        ),
         backgroundColor: ColorManager.whiteColor,
         elevation: 0,
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 16).r,
-            child:  Icon(size: 21.h,
+            child: Icon(
+              size: 21.h,
               Icons.filter_list_rounded,
               color: ColorManager.blackColor,
             ),
@@ -56,15 +58,17 @@ class TopDoctorScreen extends StatelessWidget {
         length: tabs.length,
         child: Column(
           children: [
-            TabBarDesign(tabs: tabs,),
+            TabBarDesign(
+              tabs: tabs,
+            ),
             Expanded(
               child: ListView.builder(
                 physics: const BouncingScrollPhysics(),
-                itemCount:  DoctorData.doctorData.length,
+                itemCount: DoctorData.doctorData.length,
                 itemBuilder: (context, index) {
                   return Padding(
-                    padding: const EdgeInsets.only(left: 15,right: 15).w,
-                    child:BoxDesign(
+                    padding: const EdgeInsets.only(left: 15, right: 15).w,
+                    child: BoxDesign(
                       image: DoctorData.doctorData[index]["Image"].toString(),
                       name: DoctorData.doctorData[index]["Name"].toString(),
                       work: DoctorData.doctorData[index]["work"].toString(),
@@ -78,6 +82,4 @@ class TopDoctorScreen extends StatelessWidget {
       ),
     );
   }
-
-
 }

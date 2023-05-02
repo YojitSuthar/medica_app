@@ -13,6 +13,7 @@ class NormalTextFiled extends StatelessWidget {
     required this.color,
     this.prefixIcon,
     this.child,
+    this.keyboardType,
   });
 
   final String hintText;
@@ -23,6 +24,7 @@ class NormalTextFiled extends StatelessWidget {
   final double leftPadding;
   final bool readOnly;
   final Color color;
+  final TextInputType? keyboardType;
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +44,7 @@ class NormalTextFiled extends StatelessWidget {
             textInputAction: TextInputAction.next,
             controller: controller,
             readOnly: readOnly,
+            keyboardType: keyboardType,
             decoration: InputDecoration(
                 icon: prefixIcon,
                 hintText: hintText,

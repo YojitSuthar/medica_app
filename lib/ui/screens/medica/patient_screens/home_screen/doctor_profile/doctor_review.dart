@@ -48,7 +48,7 @@ class ReviewScreen extends StatelessWidget {
                         ),
                         Text(
                           DoctorData.reviewOfPatient[index]['feedback'],
-                          style: getTextStyle(  ),
+                          style: getRegularStyle(),
                         )
                       ],
                     ),

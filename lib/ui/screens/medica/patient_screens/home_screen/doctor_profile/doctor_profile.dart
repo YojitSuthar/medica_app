@@ -99,7 +99,7 @@ class DoctorProfile extends StatelessWidget {
                             ),
                             Text(
                               DoctorData.reviewOfPatient[0]['feedback'],
-                              style: getTextStyle(),
+                              style: getRegularStyle(),
                             )
                           ],
                         ),
@@ -150,57 +150,6 @@ class DoctorProfile extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-
-  Column makeAppointment() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 10.0, top: 10).r,
-          child: Text(
-            'Make Appointment',
-            style: TextStyle(fontSize: 15.sp),
-          ),
-        ),
-        Consumer<PickDateProvider>(
-          builder: (context, value, child) {
-            return Padding(
-              padding: const EdgeInsets.only(top: 20),
-              child: DatePicker(
-                DateTime.now(),
-                height: 100,
-                width: 80,
-                initialSelectedDate: DateTime.now(),
-                selectionColor: RGBColorManager.rgbDarkBlueColor,
-                selectedTextColor: Colors.white,
-                dateTextStyle: GoogleFonts.lato(
-                  textStyle: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 18.sp,
-                      fontWeight: FontWeight.w600),
-                ),
-                dayTextStyle: GoogleFonts.lato(
-                  textStyle: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w600),
-                ),
-                monthTextStyle: GoogleFonts.lato(
-                  textStyle: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 12.sp,
-                      fontWeight: FontWeight.w600),
-                ),
-                onDateChange: (date) {
-                  value.pickDate(date);
-                },
-              ),
-            );
-          },
-        ),
-      ],
     );
   }
 
