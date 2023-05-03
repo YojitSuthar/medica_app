@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:medica/provider/provider.dart';
 import 'package:medica/resources/import_resources.dart';
 import 'package:medica/resources/resources.dart';
+import 'package:medica/ui/screens/medica/patient_screens/bottomNavigation/bottom_navigation_screen.dart';
 import 'package:medica/ui/screens/reuse_widget/reuse_widget.dart';
 
 class UserFillProfile extends StatelessWidget {
@@ -169,7 +170,8 @@ class UserFillProfile extends StatelessWidget {
                       width: 400,
                       color: RGBColorManager.rgbDarkBlueColor,
                       onPressed: () {
-                        Get.offAllNamed("/HomePage");
+                        Get.offAllNamed("/BottomNavigation");
+
                       },
                       borderRadius: 30,
                       child: const Text("Continue"),

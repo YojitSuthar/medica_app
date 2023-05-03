@@ -1,9 +1,7 @@
 import 'package:medica/data/doctor_data.dart';
-import 'package:medica/provider/provider.dart';
 import 'package:medica/resources/import_resources.dart';
 import 'package:flutter/material.dart';
 import 'package:medica/resources/resources.dart';
-
 import '../../../../reuse_widget/reuse_widget.dart';
 
 class DoctorProfile extends StatelessWidget {
@@ -228,11 +226,15 @@ class DoctorProfile extends StatelessWidget {
                 topLeft: Radius.circular(20),
                 bottomLeft: Radius.circular(20),
               ),
-              child: Image.asset(
-                image,
+              child: SizedBox(
                 height: 90.h,
                 width: 100.w,
-                fit: BoxFit.cover,
+                child: Image.asset(
+                  image,
+                  // height: 90.h,
+                  // width: 100.w,
+                  fit: BoxFit.cover,
+                ),
               )),
           Padding(
             padding: const EdgeInsets.only(left: 15).r,

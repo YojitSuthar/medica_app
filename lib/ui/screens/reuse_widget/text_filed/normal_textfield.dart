@@ -14,6 +14,7 @@ class NormalTextFiled extends StatelessWidget {
     this.prefixIcon,
     this.child,
     this.keyboardType,
+    this.maxLine,
   });
 
   final String hintText;
@@ -25,6 +26,7 @@ class NormalTextFiled extends StatelessWidget {
   final bool readOnly;
   final Color color;
   final TextInputType? keyboardType;
+  final int? maxLine;
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +43,7 @@ class NormalTextFiled extends StatelessWidget {
         children: [
           Expanded(
               child: TextFormField(
+                maxLines: maxLine,
             textInputAction: TextInputAction.next,
             controller: controller,
             readOnly: readOnly,

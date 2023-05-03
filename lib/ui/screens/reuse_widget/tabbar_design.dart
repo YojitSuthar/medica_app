@@ -6,10 +6,11 @@ import 'package:medica/resources/resources.dart';
 class TabBarDesign extends StatelessWidget {
   TabBarDesign({
     super.key,
-    required this.tabs,
+    required this.tabs, required this.contentPadding,
   });
 
   List<Widget> tabs;
+  final double contentPadding;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +26,7 @@ class TabBarDesign extends StatelessWidget {
           color: ColorManager.whiteColor,
           fontWeight: FontWeight.bold,
         ),
-        contentPadding: const EdgeInsets.symmetric(horizontal: 20).r,
+        contentPadding: EdgeInsets.symmetric(horizontal: contentPadding).r,
         borderColor: RGBColorManager.rgbDarkBlueColor,
         radius: 20,
         borderWidth: 2,

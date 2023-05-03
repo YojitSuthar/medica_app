@@ -3,7 +3,6 @@ import 'package:medica/resources/import_resources.dart';
 import '../../../../../../provider/provider.dart';
 import '../../../../../../resources/resources.dart';
 import '../../../../reuse_widget/reuse_widget.dart';
-import '';
 
 class PatientDetail extends StatelessWidget {
   const PatientDetail({Key? key}) : super(key: key);
@@ -12,7 +11,7 @@ class PatientDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     var items = ['Male', 'Female'];
 
-    String dropDownValue = 'Male';
+    String dropDownValue = 'Select Gender';
 
     return Scaffold(
       appBar: AppBar(
@@ -39,7 +38,8 @@ class PatientDetail extends StatelessWidget {
             physics: const BouncingScrollPhysics(),
             keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 8).r,
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 18, vertical: 8).r,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -98,13 +98,88 @@ class PatientDetail extends StatelessWidget {
                     child: Icon(
                       Icons.call,
                     ),
-                  )
+                  ),
+                  SizedBox(
+                    height: 120.h,
+                    child: const NormalTextFiled(
+                      hintText: 'Write Your Problem',
+                      topPadding: 0,
+                      leftPadding: 0,
+                      readOnly: false,
+                      color: ColorManager.whiteColor,
+                      keyboardType: TextInputType.multiline,
+                      maxLine: 5,
+                    ),
+                  ),
                 ],
               ),
             ),
           ),
         ),
       ),
+      bottomNavigationBar: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.only(bottom: 8.0, left: 15, right: 15).r,
+          child: BlueButton(
+            height: 45,
+            width: 400,
+            color: RGBColorManager.rgbDarkBlueColor,
+            borderRadius: 30,
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (context) {
+                  return Dialog(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20).w),
+                    child: Padding(
+                      padding: const EdgeInsets.all(20).w,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Image.asset(ImageAssets.bookAppointment),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0).w,
+                            child: Text(
+                              'Congratulations!',
+                              style: getBoldStyle(
+                                  color: RGBColorManager.rgbDarkBlueColor,fontSize: 16.sp,),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 20).w,
+                            child: Text(
+                              'Appointment Successfully booked.The doctor you selected will contact you.',
+                              style: getRegularStyle(),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                          BlueButton(
+                            height: 30,
+                            width: 250,
+                            color: RGBColorManager.rgbDarkBlueColor,
+                            borderRadius: 30,
+                            onPressed: () {
+                              Get.offAllNamed('/BottomNavigation');
+                            },
+                            child: const Text(
+                              'OK',
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  );
+                },
+                barrierDismissible: true,
+              );
+            },
+            child: const Text('Submit'),
+          ),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }

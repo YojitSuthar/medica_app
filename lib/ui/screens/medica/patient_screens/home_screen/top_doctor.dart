@@ -58,8 +58,21 @@ class TopDoctorScreen extends StatelessWidget {
         length: tabs.length,
         child: Column(
           children: [
-            TabBarDesign(
-              tabs: tabs,
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 15.w,
+                  ),
+                  TabBarDesign(
+                    tabs: tabs, contentPadding: 20,
+                  ),
+                  SizedBox(
+                    width: 15.w,
+                  ),
+                ],
+              ),
             ),
             Expanded(
               child: ListView.builder(

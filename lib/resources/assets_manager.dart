@@ -31,6 +31,7 @@ class ImageAssets {
   static const String patient6Image = '$IMAGES_PATH/patient6.jpeg';
   static const String patient7Image = '$IMAGES_PATH/patient7.avif';
   static const String patient8Image = '$IMAGES_PATH/patient8.jpeg';
+  static const String bookAppointment = '$IMAGES_PATH/appointmentBook.png';
 }
 
 class IconsAssets {

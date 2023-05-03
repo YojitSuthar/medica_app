@@ -6,3 +6,6 @@ export 'home_screen/top_doctor.dart';
 export 'home_screen/doctor_profile/doctor_profile.dart';
 export 'home_screen/doctor_profile/doctor_review.dart';
 export 'home_screen/doctor_profile/book_appointment.dart';
+export 'home_screen/doctor_profile/patient_detail.dart';
+export 'bottomNavigation/bottom_navigation_screen.dart';
+export 'appointment/appointment_screen.dart';
